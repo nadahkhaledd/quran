@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       routes: {
+        ListOfSurahNames.routeName: (buildContext)=>ListOfSurahNames(),
         surahContent.routeName:(buildContext)=>surahContent(),
-
       },
 
-      initialRoute: surahContent.routeName,
+      initialRoute: ListOfSurahNames.routeName,
     );
   }
 }
