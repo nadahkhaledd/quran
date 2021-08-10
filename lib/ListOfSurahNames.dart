@@ -34,7 +34,6 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     LoadFiles();
   }
@@ -66,18 +65,13 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.yellow,
+                        color: Colors.brown
                       ),
                     ),
                     child: Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(5.0),
                         alignment: AlignmentDirectional.centerEnd,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.yellow,
-                          ),
-                        ),
                         child:  Text('عدد الايات', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
                       ),
                     ),
@@ -87,18 +81,13 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.yellow,
+                        color: Colors.brown,
                       ),
                     ),
                     child: Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(5.0),
                         alignment: AlignmentDirectional.centerEnd,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.yellow,
-                          ),
-                        ),
                         child:  Text('السورة', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
                       ),
                     ),
@@ -112,17 +101,13 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                 //alignment: AlignmentDirectional.centerEnd,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Colors.yellow,
+                    color: Colors.brown,
                   ),
                 ),
                 child:
                 Expanded(
                   child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.yellow,
-                      ),
-                    ),
+                    alignment: AlignmentDirectional.centerEnd,
                     child: ListView.builder(
                         padding: const EdgeInsets.all(8),
                         itemCount: names.length,

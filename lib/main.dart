@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Cairo'),
+      //theme: ThemeData(fontFamily: 'Cairo'),
       home: Scaffold( body: ListOfSurahNames(),
       ),
     );
