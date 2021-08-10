@@ -1,6 +1,17 @@
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ListOfSurahNames extends StatelessWidget {
+
+  late List<String> names = ['الفاتحة', 'البقرة', 'ال عمران', 'النساء', 'المائدة', 'الأنعام', 'الأعراف',
+    'الأنفال', 'التوبة', 'يونس', 'هود', 'يوسف', 'الرعد', 'إبراهيم', 'الحجر', 'النحل', 'الاسراء', 'الكهف', 'مريم', 'طه'];
+
+  void readNames()
+  {
+    //File f =  File('./Names.txt');
+    //List<String> names = f.readAsLinesSync();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +29,49 @@ class ListOfSurahNames extends StatelessWidget {
               Center(child: Text('إسلامي', style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
 
               Center(child: Image(image: AssetImage('assets/icons/Screenshot.png'),alignment: Alignment.center, width: 135, height: 155,)),
+
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.yellow,
+                ),
+              ),
+              child: Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(5.0),
+                  alignment: AlignmentDirectional.centerEnd,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.yellow,
+                    ),
+                  ),
+                  child:  Text('السورة', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                ),
+              ),
+            ),
+
+            Expanded(child:
+              Container(
+                alignment: AlignmentDirectional.centerEnd,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.yellow,
+                  ),
+                ),
+                child: ListView.builder(
+
+                    padding: const EdgeInsets.all(8),
+                    itemCount: names.length,
+                    itemBuilder: (BuildContext context, int index){
+                      return Container(
+                        padding: const EdgeInsets.all(4.0),
+                        alignment: AlignmentDirectional.centerEnd,
+                          child: Text(names[index], style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),),
+                      );
+                    }
+                ),
+              )
+            )
 
           ],
         ),
