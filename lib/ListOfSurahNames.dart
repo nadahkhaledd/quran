@@ -2,23 +2,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'dart:io';
 
-class ListOfSurahNames extends StatelessWidget {
+class ListOfSurahNames extends StatefulWidget {
 
-  late List<String> names = ['الفاتحة', 'البقرة', 'ال عمران', 'النساء', 'المائدة', 'الأنعام', 'الأعراف',
-    'الأنفال', 'التوبة', 'يونس', 'هود', 'يوسف', 'الرعد', 'إبراهيم', 'الحجر', 'النحل', 'الاسراء', 'الكهف', 'مريم', 'طه'];
 
-  ListOfSurahNames()
-  {
-    //LoadNames();
+  @override
+  _ListOfSurahNamesState createState() => _ListOfSurahNamesState();
+}
+
+class _ListOfSurahNamesState extends State<ListOfSurahNames> {
+  late List<String> names = [];
+  late List<String> AyatNumbers = [];
+  late String _dataOfNames = '';
+  late String _dataOfNumbersOfAyat = '';
+
+  Future<void> _loadData() async {
+    final _loadedNames = await rootBundle.loadString('assets/Names.txt');
+    final _loadedNumbers = await rootBundle.loadString('assets/NumbersOfAyat.txt');
+    setState(() {
+      _dataOfNames = _loadedNames;
+      _dataOfNumbersOfAyat = _loadedNumbers;
+    });
   }
 
-
-  void LoadNames()
+  void LoadFiles()
   {
-    File f =  File('assets/Names.txt');
-     names = f.readAsLinesSync();
+    _loadData();
+      names = _dataOfNames.split('\n');
+      AyatNumbers = _dataOfNumbersOfAyat.split('\n');
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    LoadFiles();
   }
 
   @override
@@ -36,26 +54,57 @@ class ListOfSurahNames extends StatelessWidget {
           children: [
               Center(child: Text('إسلامي', style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
 
-              Center(child: Image(image: AssetImage('assets/icons/Screenshot.png'),alignment: Alignment.center, width: 135, height: 155,)),
-
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.yellow,
-                ),
-              ),
-              child: Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(5.0),
-                  alignment: AlignmentDirectional.centerEnd,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.yellow,
+            GestureDetector(
+              child: Center(child:
+                    Image(image: AssetImage('assets/icons/Screenshot.png'),alignment: Alignment.center, width: 135, height: 155,)
+                    ),
+              onTap: LoadFiles,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.yellow,
+                      ),
+                    ),
+                    child: Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(5.0),
+                        alignment: AlignmentDirectional.centerEnd,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.yellow,
+                          ),
+                        ),
+                        child:  Text('عدد الايات', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                      ),
                     ),
                   ),
-                  child:  Text('السورة', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
                 ),
-              ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.yellow,
+                      ),
+                    ),
+                    child: Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.all(5.0),
+                        alignment: AlignmentDirectional.centerEnd,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.yellow,
+                          ),
+                        ),
+                        child:  Text('السورة', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
 
             Expanded(child:
@@ -66,20 +115,39 @@ class ListOfSurahNames extends StatelessWidget {
                     color: Colors.yellow,
                   ),
                 ),
-                child: ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    itemCount: names.length,
-                    itemBuilder: (BuildContext context, int index){
-                      return GestureDetector(
-                          child:
-                          Container(
-                            padding: const EdgeInsets.all(4.0),
-                            alignment: AlignmentDirectional.centerEnd,
-                            child: Text(names[index], style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),),
-                          ),
-                      onTap: () => print('$index')
-                      );
-                    }
+                child:
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.yellow,
+                      ),
+                    ),
+                    child: ListView.builder(
+                        padding: const EdgeInsets.all(8),
+                        itemCount: names.length,
+                        itemBuilder: (BuildContext context, int index){
+                          return GestureDetector(
+                              child:
+                              Container(
+                                padding: const EdgeInsets.all(4.0),
+                                alignment: AlignmentDirectional.centerEnd,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Expanded(child:
+                                    Text(AyatNumbers[index], style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),)
+                                      ),
+                                    Expanded(child:
+                                    Text(names[index], style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold))),
+                                  ],
+                                )
+                              ),
+                              onTap: () => print('$index')
+                          );
+                        }
+                    ),
+                  ),
                 ),
               )
             )

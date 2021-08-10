@@ -25,10 +25,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( body: ListOfSurahNames(),
-
-
-     // This trailing comma makes auto-formatting nicer for build methods.
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
+      home: Scaffold( body: ListOfSurahNames(),
+      ),
     );
   }
 }
