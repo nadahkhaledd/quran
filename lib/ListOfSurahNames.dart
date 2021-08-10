@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class ListOfSurahNames extends StatefulWidget {
-
+ static const routeName = 'SurahNames';
 
   @override
   _ListOfSurahNamesState createState() => _ListOfSurahNamesState();
