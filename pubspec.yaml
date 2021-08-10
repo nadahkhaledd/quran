@@ -49,7 +49,10 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/
-  #   - images/a_dot_burr.jpeg
+    - assets/icons/sebha_blue.png
+    - assets/icons/radio_blue.png
+    - assets/icons/Group 6.png
+    - assets/icons/quran.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

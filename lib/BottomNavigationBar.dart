@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'ListOfSurahNames.dart';
 
 class NavigationBar extends StatefulWidget {
   // This widget is the root of your application.
@@ -12,32 +12,38 @@ class _NavigationBarState extends State<NavigationBar> {
 
   @override
   Widget build(BuildContext context) {
+     List<Widget> _pages = <Widget>[
+      ListOfSurahNames(),
+       ListOfSurahNames(),
+       ListOfSurahNames(),
+       ListOfSurahNames(),
+    ];
     return Scaffold(
+      body: Center(
+        child: _pages.elementAt(selected), //New
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        //iconSize: 10,
-        backgroundColor: Colors.red,
-        //elevation: 10,
+        backgroundColor: Colors.brown,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset('images/radio_blue.png'),
-            label: 'Calls',
+            icon: Image.asset('assets/icons/radio_blue.png'),
+            label: 'الراديو',
           ),
           BottomNavigationBarItem(
-            icon:Image.asset('images/sebha_blue.png'),
-            label: 'Camera',
+            icon:Image.asset('assets/icons/sebha_blue.png'),
+            label: 'التسبيح',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('images/Group 6.png'),
-            label: 'Chats',
+            icon: Image.asset('assets/icons/Group 6.png'),
+            label: 'الاحاديث',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('images/quran.png'),
-            label: 'Chats',
+            icon: Image.asset('assets/icons/quran.png'),
+            label: 'القرآن',
           ),
         ],
-        //fixedColor: Colors.red,
-        // backgroundColor: Colors.red,
+        fixedColor: Colors.black,
         currentIndex: selected,
         showUnselectedLabels: false,
         onTap: IconTap,
