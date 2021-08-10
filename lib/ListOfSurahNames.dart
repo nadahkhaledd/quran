@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quran/surahContent.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class ListOfSurahNames extends StatefulWidget {
@@ -128,7 +129,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                   ],
                                 )
                               ),
-                              onTap: () => print('$index')
+                              onTap: () => Navigator.pushNamed(context, surahContent.routeName, arguments: {index+1})
                           );
                         }
                     ),
