@@ -27,19 +27,23 @@ class _NavigationBarState extends State<NavigationBar> {
         backgroundColor: Colors.brown,
         items: [
           BottomNavigationBarItem(
+            activeIcon: Image.asset('assets/icons/radio_blue.png',color: Colors.black,),
             icon: Image.asset('assets/icons/radio_blue.png'),
             label: 'الراديو',
           ),
           BottomNavigationBarItem(
+            activeIcon: Image.asset('assets/icons/sebha_blue.png',color: Colors.black,),
             icon:Image.asset('assets/icons/sebha_blue.png'),
             label: 'التسبيح',
           ),
           BottomNavigationBarItem(
+            activeIcon: Image.asset('assets/icons/Group 6.png',color: Colors.black,),
             icon: Image.asset('assets/icons/Group 6.png'),
             label: 'الاحاديث',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/icons/quran.png'),
+            activeIcon: Image.asset('assets/icons/quran.png',color: Colors.black,),
+            icon: Image.asset('assets/icons/quran.png',),
             label: 'القرآن',
           ),
         ],
@@ -57,6 +61,7 @@ class _NavigationBarState extends State<NavigationBar> {
   {
     setState(() {
       selected=index;
+
     });
 
   }
