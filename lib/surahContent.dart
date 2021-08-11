@@ -5,6 +5,8 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:quran/ListOfSurahNames.dart';
 import 'dart:async';
 
+import 'package:quran/navbar.dart';
+
 
 
 
@@ -72,160 +74,161 @@ class _surahContentState extends State<surahContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
 
-          padding: EdgeInsets.only(top: 25.0,bottom: 24.0),
-          child: Column(
+    body: SingleChildScrollView(
+    child: Container(
 
-            children: [
+    padding: EdgeInsets.only(top: 25.0,bottom: 24.0),
+    child: Column(
 
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                children: [
-
-                 Container(
-                   padding: EdgeInsets.only(right: 5.0),
-
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_sharp,
-                        color: Colors.black,
-                        size: 35.0,
-                      ),
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ListOfSurahNames(),
-
-                        ),
-                        );
-
-                      },
+    children: [
 
 
-                    ),
-                  ) ,
+    Row(
+    mainAxisAlignment: MainAxisAlignment.center,
 
-                   Container(
-                     padding: EdgeInsets.only(left: 90.0,right: 135.0),
-                     child: Text(
+    children: [
 
-                        'إسلامي',
-                        style: TextStyle(
-                          fontSize: 35.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                   ),
-                ],
-              ),
-              SizedBox(
-                height: 30.0,
-              ),
+    Container(
+    padding: EdgeInsets.only(right: 5.0),
 
-              Container(
-                  padding: EdgeInsets.only(top: 24.0,right: 18.0,left: 18.0),
-                  width: MediaQuery.of(context).size.width * .85,
-                  height: MediaQuery.of(context).size.height * .82,
+    child: IconButton(
+    icon: Icon(
+    Icons.arrow_back_sharp,
+    color: Colors.black,
+    size: 35.0,
+    ),
+    onPressed: (){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>navbar(),
 
-                  child: Column(
-                    children: [
-                      Row(
+    ),
+    );
 
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "${widget.surahName+'سورة '}",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 25.0,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 32.0,
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: IconButton(
-                              icon: Icon(
-                                CupertinoIcons.arrowtriangle_right_circle_fill,
-                                size: 30.0,
-                                color: Colors.black,
-
-                              ),
-                              onPressed: (){
-
-                                _loadData(widget.surahNumber);
-
-                                _writingSurahInProperForm();
-
-                              },
+    },
 
 
-                            ),
+    ),
+    ) ,
 
-                          ),
+    Container(
+    padding: EdgeInsets.only(left: 90.0,right: 135.0),
+    child: Text(
 
-                        ],
-                      ),
-                      Divider(
-                        indent: 18.0,
-                       endIndent: 18.0,
-                        thickness: 1.0,
-                        color: Colors.brown,
-                      ),
+    'إسلامي',
+    style: TextStyle(
+    fontSize: 35.0,
+    fontWeight: FontWeight.bold,
+    ),
+    ),
+    ),
+    ],
+    ),
+    SizedBox(
+    height: 30.0,
+    ),
 
-                       Expanded(
+    Container(
+    padding: EdgeInsets.only(top: 24.0,right: 18.0,left: 18.0),
+    width: MediaQuery.of(context).size.width * .85,
+    height: MediaQuery.of(context).size.height * .82,
 
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: SingleChildScrollView(
+    child: Column(
+    children: [
+    Row(
 
-                              child: Column(
-                                children: <Widget>[
-                                  ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemCount: surahLength,
-                                    itemBuilder: (context, index) {
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+    Align(
 
-                                      return Text(finalSurahContent[index]);
-                                    },
-                                  ),
-                                ],
-                              ),
+    alignment: Alignment.topCenter,
+    child: Text(
+    "${widget.surahName+'سورة '}",
+    style: TextStyle(
+    fontWeight: FontWeight.w900,
+    fontSize: 25.0,
+    ),
+    ),
+    ),
+    SizedBox(
+    width: 32.0,
+    ),
+    Align(
+    alignment: Alignment.topRight,
+    child: IconButton(
+    icon: Icon(
+    CupertinoIcons.arrowtriangle_right_circle_fill,
+    size: 30.0,
+    color: Colors.black,
+
+    ),
+    onPressed: (){
+
+    _loadData(widget.surahNumber);
+
+    _writingSurahInProperForm();
+
+    },
 
 
-                            ),
-                          ),
-                        ),
+    ),
+
+    ),
+
+    ],
+    ),
+    Divider(
+    indent: 18.0,
+    endIndent: 18.0,
+    thickness: 1.0,
+    color: Colors.brown,
+    ),
+
+    Expanded(
+
+    child: SingleChildScrollView(
+    scrollDirection: Axis.vertical,
+    child: SingleChildScrollView(
+
+    child: Column(
+    children: <Widget>[
+    ListView.builder(
+    physics: NeverScrollableScrollPhysics(),
+    shrinkWrap: true,
+    itemCount: surahLength,
+    itemBuilder: (context, index) {
+
+    return Text(finalSurahContent[index]);
+    },
+    ),
+    ],
+    ),
+
+
+    ),
+    ),
+    ),
 
 
 
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white70,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                ),
+    ],
+    ),
+    decoration: BoxDecoration(
+    color: Colors.white70,
+    borderRadius: BorderRadius.all(Radius.circular(20)),
+    ),
+    ),
 
 
-            ],
-          ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'),
-              fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      ),
+    ],
+    ),
+    decoration: BoxDecoration(
+    image: DecorationImage(
+    image: AssetImage('assets/images/bg3.png'),
+    fit: BoxFit.fill,
+    ),
+    ),
+    ),
+    ),
     );
 
   }
