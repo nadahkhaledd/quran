@@ -129,7 +129,13 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                   ],
                                 )
                               ),
-                              onTap: () => Navigator.pushNamed(context, surahContent.routeName, arguments: {index+1})
+                              onTap: () {
+                                var route = new MaterialPageRoute(
+                                  builder: (BuildContext context) => surahContent(surahName: names[index] , surahNumber: (index+1),),
+                                );
+                                Navigator.of(context).push(route);
+                              }
+                            /*Navigator.pushNamed(context, surahContent.routeName, arguments: {index+1,names[index]})*/
                           );
                         }
                     ),
