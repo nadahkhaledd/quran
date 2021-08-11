@@ -16,7 +16,7 @@ class surahContent extends StatefulWidget {
 
   static const routeName = 'surahContent';
 
-  surahContent({ required this.surahName , required this.surahNumber}) : super();
+  surahContent({  this.surahName = 'surah name' ,  this.surahNumber = 1}) : super();
 
   @override
   _surahContentState createState() => _surahContentState();

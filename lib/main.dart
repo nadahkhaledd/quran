@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/ListOfSurahNames.dart';
 import 'package:quran/surahContent.dart';
-import 'package:quran/tryingBackButton.dart';
 import 'package:quran/Sebha.dart';
 
 void main() {
@@ -17,8 +16,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Sebha.routeName: (buildContext)=>Sebha(),
         ListOfSurahNames.routeName: (buildContext)=>ListOfSurahNames(),
-        surahContent.routeName:(buildContext)=>surahContent(),
-        tryingBackButton.routeName:(buildContext)=>tryingBachButton(),
+        surahContent.routeName:(buildContext)=> surahContent(),
+        //tryingBackButton.routeName:(buildContext)=>tryingBackButton(),
       },
 
       initialRoute: Sebha.routeName,
