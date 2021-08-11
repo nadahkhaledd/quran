@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quran/ListOfSurahNames.dart';
 import 'package:quran/surahContent.dart';
 import 'package:quran/tryingBackButton.dart';
+import 'package:quran/Sebha.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,12 +15,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       routes: {
+        Sebha.routeName: (buildContext)=>Sebha(),
         ListOfSurahNames.routeName: (buildContext)=>ListOfSurahNames(),
         surahContent.routeName:(buildContext)=>surahContent(),
         tryingBachButton.routeName:(buildContext)=>tryingBachButton(),
       },
 
-      initialRoute: ListOfSurahNames.routeName,
+      initialRoute: Sebha.routeName,
     );
   }
 }
