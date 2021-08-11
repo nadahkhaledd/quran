@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quran/ListOfSurahNames.dart';
 import 'dart:async';
-import 'dart:io';
 
 
 
