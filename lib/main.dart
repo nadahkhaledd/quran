@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
         Sebha.routeName: (buildContext)=>Sebha(),
         ListOfSurahNames.routeName: (buildContext)=>ListOfSurahNames(),
         surahContent.routeName:(buildContext)=> surahContent(),
-        //tryingBackButton.routeName:(buildContext)=>tryingBackButton(),
       },
 
       initialRoute: Sebha.routeName,
