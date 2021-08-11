@@ -23,6 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  path: 1.8.0
+  path_provider: ^1.6.8
+  flutter_file_manager: ^0.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,7 +67,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
+  #fonts:
     - family: Cairo
       fonts:
         - asset: fonts/Cairo/Cairo-Regular.ttf
