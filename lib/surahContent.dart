@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:quran/Storage.dart';
+
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:quran/ListOfSurahNames.dart';
 import 'dart:async';
-import 'package:quran/tryingBackButton.dart';
 import 'dart:io';
 
 
@@ -11,8 +11,12 @@ import 'dart:io';
 
 
 class surahContent extends StatefulWidget {
+  String surahName="surah name";
+  late int surahNumber;
 
   static const routeName = 'surahContent';
+
+  surahContent({ required this.surahName , required this.surahNumber}) : super();
 
   @override
   _surahContentState createState() => _surahContentState();
@@ -22,11 +26,13 @@ class _surahContentState extends State<surahContent> {
   late Future _future;
 
   String _data='';
-  //late int surahNumber;
+
    int ayahNumber=1;
   late int surahLength=0;
+
    late List<String> surahReadedContet=[];
    late List<String> finalSurahContent=[];
+
 
   // This function is triggered when the user presses the icon button -temporarily-
   Future<void> _loadData(int surahNumber) async {
@@ -39,27 +45,18 @@ class _surahContentState extends State<surahContent> {
     surahReadedContet=_data.split('\n');
 
   }
-  void initState() {
-    super.initState();
-    _loadData(2);
-    //Future.delayed(Duration.zero, () => _loadData(2));
-  }
 
-  /*void initState() {
-    _future = _loadData(113);
 
-    super.initState();
-  }*/
-
-  void _showSurahsContent()
+/*
+  void _showSurahsContent() //this function is implemented for debugging purposes
   {
     for(int i =0;i<surahReadedContet.length;i++)
       {
         print(surahReadedContet[i]+'\n');
       }
   }
-
-  void _writingSurahInProperForm()
+*/
+  void _writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for(int i=0;i<surahReadedContet.length;i++)
       {
@@ -70,14 +67,6 @@ class _surahContentState extends State<surahContent> {
     ayahNumber=1;
     surahLength=finalSurahContent.length;
 
-  }
-
-  void _showSurahsContentInProperForm()
-  {
-    for(int i =0;i<finalSurahContent.length;i++)
-    {
-      print(finalSurahContent[i]+'\n');
-    }
   }
 
 
@@ -108,15 +97,13 @@ class _surahContentState extends State<surahContent> {
                         size: 35.0,
                       ),
                       onPressed: (){
-                        _loadData(2);
-                        //_showSurahsContent();
-                        _writingSurahInProperForm();
-                       // _showSurahsContentInProperForm();
-                      },
-                        /*Navigator.push(context, MaterialPageRoute(builder: (context)=>tryingBachButton(),
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ListOfSurahNames(),
 
                         ),
-                        );*/
+                        );
+
+                      },
+
 
                     ),
                   ) ,
@@ -153,7 +140,7 @@ class _surahContentState extends State<surahContent> {
 
                             alignment: Alignment.topCenter,
                             child: Text(
-                              'surah name',
+                              "${widget.surahName+'سورة '}",
                               style: TextStyle(
                                 fontWeight: FontWeight.w900,
                                 fontSize: 25.0,
@@ -165,10 +152,24 @@ class _surahContentState extends State<surahContent> {
                           ),
                           Align(
                             alignment: Alignment.topRight,
-                            child: Icon(
-                              CupertinoIcons.arrowtriangle_right_circle,
-                              size: 30.0,
+                            child: IconButton(
+                              icon: Icon(
+                                CupertinoIcons.arrowtriangle_right_circle_fill,
+                                size: 30.0,
+                                color: Colors.black,
+
+                              ),
+                              onPressed: (){
+
+                                _loadData(widget.surahNumber);
+
+                                _writingSurahInProperForm();
+
+                              },
+
+
                             ),
+
                           ),
 
                         ],
@@ -193,17 +194,13 @@ class _surahContentState extends State<surahContent> {
                                     shrinkWrap: true,
                                     itemCount: surahLength,
                                     itemBuilder: (context, index) {
-                                      //_loadData(2);
-                                     // _writingSurahInProperForm();
+
                                       return Text(finalSurahContent[index]);
                                     },
                                   ),
                                 ],
                               ),
-                              /*FutureBuilder(
-                                  future: _future,
-                                  builder: (context, snapshot) =>
-                                      Text(snapshot.hasData ? '${snapshot.data}' : ' Reading...')),*/
+
 
                             ),
                           ),
