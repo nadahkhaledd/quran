@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/AhadeethMenu.dart';
 import 'ListOfSurahNames.dart';
 import 'surahContent.dart';
 import 'Sebha.dart';
@@ -38,9 +39,8 @@ class navbarState extends State<navbar> {
     List<Widget> _pages = <Widget>[
       tempPages(),
       Sebha(),
-      tempPages(),
+      AhadeethMenu(),
       ListOfSurahNames(),
-      surahContent()
     ];
     return Scaffold(
         body: Center(
@@ -49,6 +49,7 @@ class navbarState extends State<navbar> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.brown,
+          iconSize: 10,
           items: [
             BottomNavigationBarItem(
               activeIcon: Image.asset('assets/icons/radio_blue.png',color: Colors.black,),

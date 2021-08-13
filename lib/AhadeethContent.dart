@@ -2,65 +2,47 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:quran/ListOfSurahNames.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
 
-class surahContent extends StatefulWidget {
-  String surahName = "surah name";
-  late int surahNumber;
+class AhadeethContent extends StatefulWidget {
+  late int hadeethNumber;
 
-  static const routeName = 'surahContent';
+  static const routeName = 'AhadeethContent';
 
-  surahContent({this.surahName = 'surah name', this.surahNumber = 1}) : super();
+  AhadeethContent({this.hadeethNumber = 1}) : super();
 
   @override
-  _surahContentState createState() => _surahContentState();
+  _AhadeethContentState createState() => _AhadeethContentState();
 }
 
-class _surahContentState extends State<surahContent> {
+class _AhadeethContentState extends State<AhadeethContent> {
   late Future _future;
 
-  String _data = '';
-
-  int ayahNumber = 1;
-  late int surahLength = 0;
-
-  late List<String> surahReadedContet = [];
-  late List<String> finalSurahContent = [];
+  late String finalAhadeethContent = '';
 
   // This function is triggered when the user presses the icon button -temporarily-
   Future<void> _loadData(int surahNumber) async {
     final _loadedData = await rootBundle
-        .loadString('assets/ayat/' + surahNumber.toString() + '.txt');
+        .loadString('assets/ahadeeth/' + surahNumber.toString() + '.txt');
     setState(() {
-      _data = _loadedData;
+      finalAhadeethContent = _loadedData;
     });
     //print(_data);
-    surahReadedContet = _data.split('\n');
   }
 
-/*
-  void _showSurahsContent() //this function is implemented for debugging purposes
-  {
-    for(int i =0;i<surahReadedContet.length;i++)
-      {
-        print(surahReadedContet[i]+'\n');
-      }
-  }
-*/
-  void
-      _writingSurahInProperForm() //this function adds the numbering to the surah
+
+  /*_writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for (int i = 0; i < surahReadedContet.length; i++) {
-      finalSurahContent.add(surahReadedContet[i]);
-      finalSurahContent.add('[' + ayahNumber.toString() + ']');
+      finalAhadeethContent.add(surahReadedContet[i]);
+      finalAhadeethContent.add('[' + ayahNumber.toString() + ']');
       ayahNumber++;
     }
     ayahNumber = 1;
-    surahLength = finalSurahContent.length;
-  }
+    surahLength = finalAhadeethContent.length;
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +100,7 @@ class _surahContentState extends State<surahContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            "${widget.surahName + 'سورة '}",
+                            '${widget.hadeethNumber} حديث ' ,
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
@@ -137,9 +119,7 @@ class _surahContentState extends State<surahContent> {
                               color: Colors.black,
                             ),
                             onPressed: () {
-                              _loadData(widget.surahNumber);
-
-                              _writingSurahInProperForm();
+                              _loadData(widget.hadeethNumber);
                             },
                           ),
                         ),
@@ -160,9 +140,9 @@ class _surahContentState extends State<surahContent> {
                               ListView.builder(
                                 physics: NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
-                                itemCount: surahLength,
+                                itemCount: 1,
                                 itemBuilder: (context, index) {
-                                  return Text(finalSurahContent[index]);
+                                  return Text(finalAhadeethContent);
                                 },
                               ),
                             ],
