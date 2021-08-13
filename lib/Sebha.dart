@@ -89,12 +89,12 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/bg3.png'),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
 
             child: Container(
-              margin: EdgeInsets.only(top: 100),
+              margin: EdgeInsets.only(top: 85),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -106,7 +106,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                            margin: EdgeInsets.only(bottom:100),
+                            margin: EdgeInsets.only(bottom:80),
                             //alignment: Alignment.topRight,
                             child: Image(
 
@@ -114,7 +114,6 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                               image:AssetImage('assets/icons/head of seb7a.png') ,)),
                       ),
                       Container(
-                        //     margin: EdgeInsets.only(bottom: 200),
                         child: RotationTransition(
                           turns: Tween(begin: 0.0,end:1.0).animate(_controller)
                             ..addStatusListener((status) {
@@ -153,15 +152,9 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                       )
                   ),
                   Container(
-                    child: ElevatedButton.icon(
+                    child: ElevatedButton(
 
-                      icon: Icon(
-                        Icons.favorite,
-                        color: Colors.pink,
-                        size: 24.0,
-                      ),
-
-                      label: Text(value ,style: TextStyle(fontSize: 20),),
+                      child: Text(value ,style: TextStyle(fontSize: 20),),
                       onPressed: adder,
 
                       style: ElevatedButton.styleFrom(
