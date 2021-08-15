@@ -29,9 +29,13 @@ How to clone and run the application?
 
 
 Screenshots of the app:
-![WhatsApp Image 2021-08-15 at 4 40 30 PM](https://user-images.githubusercontent.com/50349835/129483238-fb6fcdb6-7ea9-4dd8-92ee-8fda2833f3fb.jpeg)
+
+
 
 ![WhatsApp Image 2021-08-13 at 4 39 39 PM](https://user-images.githubusercontent.com/50349835/129483240-b4604787-846f-4e7d-bcfd-1b961dffbd4e.jpeg)
+
+
+![WhatsApp Image 2021-08-15 at 4 40 30 PM](https://user-images.githubusercontent.com/50349835/129483238-fb6fcdb6-7ea9-4dd8-92ee-8fda2833f3fb.jpeg)
 
 ![WhatsApp Image 2021-08-15 at 4 40 28 PM (1)](https://user-images.githubusercontent.com/50349835/129483242-fe90434c-00bf-4e6f-90bd-6aa6d1340113.jpeg)
 
