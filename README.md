@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-The app allows android & IOS users to :
+The app allows an android or an IOS user to :
 
 1- Have full access to a listview of all quraan surahs to read them whenever he wants through page " القران" 
 2- Have full access to a listview of ahadeeth through page " الأحاديث"  
