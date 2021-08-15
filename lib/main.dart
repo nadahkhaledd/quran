@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/ListOfSurahNames.dart';
 import 'package:quran/navbar.dart';
-import 'package:quran/surahContent.dart';
-import 'package:quran/Sebha.dart';
 
 void main() {
   runApp(MyApp());
