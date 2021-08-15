@@ -8,15 +8,20 @@ This project is a starting point for a Flutter application.
 
 The app allows an android or an IOS user to :
 
-1- Have full access to a listview of all quraan surahs to read them whenever he wants through page " القران" 
-2- Have full access to a listview of ahadeeth through page " الأحاديث"  
+1- Have full access to a listview of all quraan surahs to read them whenever he wants through page " القران"
+
+2- Have full access to a listview of ahadeeth through page " الأحاديث" 
+
 3- Use the sebha and have access to counter of athkar through page " التسبيح"
 
 The app allows the user to navigate between the pages through a navigator which contains the following options:
 
 1-القران 
+
 2- الأحاديث
+
 3- التسبيح
+
 4-(not yet implemented) الراديو 
 
 
