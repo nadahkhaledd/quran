@@ -26,6 +26,7 @@ The app allows the user to navigate between the pages through a navigator which 
 
 
 Packages & technologies :
+- Material.dart
 - No special purpose packages were used only other classes were imported in main.dart
 
 How to clone and run the application?
