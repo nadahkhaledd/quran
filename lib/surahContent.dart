@@ -37,25 +37,14 @@ class _surahContentState extends State<surahContent> {
     setState(() {
       _data = _loadedData;
     });
-    //print(_data);
     surahReadedContet = _data.split('\n');
   }
 
-/*
-  void _showSurahsContent() //this function is implemented for debugging purposes
-  {
-    for(int i =0;i<surahReadedContet.length;i++)
-      {
-        print(surahReadedContet[i]+'\n');
-      }
-  }
-*/
   void
       _writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for (int i = 0; i < surahReadedContet.length; i++) {
-      finalSurahContent.add(surahReadedContet[i]);
-      finalSurahContent.add('[' + ayahNumber.toString() + ']');
+      finalSurahContent.add(surahReadedContet[i] +   '[' + ayahNumber.toString() + ']'  );
       ayahNumber++;
     }
     ayahNumber = 1;
@@ -118,7 +107,7 @@ class _surahContentState extends State<surahContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            "${widget.surahName + 'سورة '}",
+                            'سورة  ' + widget.surahName ,
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
@@ -156,13 +145,15 @@ class _surahContentState extends State<surahContent> {
                         scrollDirection: Axis.vertical,
                         child: SingleChildScrollView(
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
                               ListView.builder(
                                 physics: NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: surahLength,
                                 itemBuilder: (context, index) {
-                                  return Text(finalSurahContent[index]);
+                                  return Text(finalSurahContent[index], textAlign: TextAlign.end,);
                                 },
                               ),
                             ],
