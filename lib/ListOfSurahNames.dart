@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/surahContent.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class ListOfSurahNames extends StatefulWidget {
   static const routeName = 'SurahNames';
@@ -191,7 +193,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                    Expanded(
                         child: Container(
                           padding: const EdgeInsets.all(5.0),
-                          alignment: AlignmentDirectional.centerEnd,
+                          alignment: AlignmentDirectional.centerStart,
                           child: Text(AppLocalizations.of(context)!.verses,
                               style: TextStyle(
                                   color: Colors.black,
@@ -202,8 +204,8 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
 
                    Expanded(
                         child: Container(
-                          padding: const EdgeInsets.all(5.0),
-                          alignment: AlignmentDirectional.centerEnd,
+                          padding: const EdgeInsets.all(7.0),
+                          alignment: AlignmentDirectional.centerStart,
                           child: Text(AppLocalizations.of(context)!.surahName,
                               style: TextStyle(
                                   color: Colors.black,
@@ -231,7 +233,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
                             child: Container(
-                                padding: const EdgeInsets.all(4.0),
+                                padding: const EdgeInsets.all(6.0),
                                 //alignment: AlignmentDirectional.centerEnd,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,

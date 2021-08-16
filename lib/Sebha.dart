@@ -115,7 +115,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                             //alignment: Alignment.topRight,
                             child: Image(
 
-                              // alignment:Alignment.topCenter,
+                              //alignment:Alignment.topCenter,
                               image:AssetImage('assets/icons/head of seb7a.png') ,)),
                       ),
                       Container(

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:quran/ListOfSurahNames.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
@@ -43,7 +45,8 @@ class _surahContentState extends State<surahContent> {
       _writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for (int i = 0; i < surahReadedContet.length; i++) {
-      finalSurahContent.add(surahReadedContet[i] +   '[' + ayahNumber.toString() + ']'  );
+      finalSurahContent
+          .add(surahReadedContet[i] + '[' + ayahNumber.toString() + ']');
       ayahNumber++;
     }
     ayahNumber = 1;
@@ -110,6 +113,7 @@ class _surahContentState extends State<surahContent> {
                           alignment: Alignment.topCenter,
                           child: Text(
                             AppLocalizations.of(context)!.surah +' ' + widget.surahName ,
+
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
@@ -157,6 +161,10 @@ class _surahContentState extends State<surahContent> {
                                 itemCount: surahLength,
                                 itemBuilder: (context, index) {
                                   return Text(finalSurahContent[index], style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
+                                  return Text(
+                                    finalSurahContent[index],
+                                    textAlign: TextAlign.end,
+                                  );
                                 },
                               ),
                             ],
