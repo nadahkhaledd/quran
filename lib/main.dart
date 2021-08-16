@@ -35,10 +35,7 @@ class _MyAppState extends State<MyApp> {
       ),*/
             debugShowCheckedModeBanner: false,
 
-            home:navbar()
-        );
-      },
+      home:navbar()
     );
-
   }
 }
