@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/ListOfSurahNames.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/appconfig.dart';
 import 'package:quran/myThemeData.dart';
 import 'package:quran/navbar.dart';
-import 'package:quran/surahContent.dart';
-import 'package:quran/Sebha.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -23,19 +23,26 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (BuildContext)=>appConfig(),///class name
-      builder: (BuildContext,Widget){
-        final provider=Provider.of<appConfig>(BuildContext);
+      builder: (BuildContext,Widget) {
+        final provider = Provider.of<appConfig>(BuildContext);
         return MaterialApp(
             themeMode: ThemeMode.dark,
-            darkTheme:MythemeData.darkTheme,
-            theme:MythemeData.lightTheme,
+            darkTheme: MythemeData.darkTheme,
+            theme: MythemeData.darkTheme,
+
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: AppLocalizations.supportedLocales,
             /*   theme: ThemeData(
-        fontFamily: 'Cairo',
-
-      ),*/
+        fontFamily: 'Cairo',),*/
             debugShowCheckedModeBanner: false,
-
-      home:navbar()
+            home: navbar()
+        );
+      }
     );
   }
 }

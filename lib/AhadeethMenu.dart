@@ -2,8 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/AhadeethContent.dart';
-import 'package:quran/surahContent.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadeethMenu extends StatefulWidget {
   static const routeName = 'SurahNames';
@@ -27,7 +26,7 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text('إسلامي', style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
+            Center(child: Text( AppLocalizations.of(context)!.islami, style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
 
              Center(child:
               Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 200, height: 200,)
