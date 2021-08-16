@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/AhadeethMenu.dart';
+import 'package:quran/Setting.dart';
 import 'ListOfSurahNames.dart';
 import 'surahContent.dart';
 import 'Sebha.dart';
@@ -40,6 +41,7 @@ class navbarState extends State<navbar> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
+      Setting(),
       tempPages(),
       Sebha(),
       AhadeethMenu(),
@@ -55,6 +57,11 @@ class navbarState extends State<navbar> {
         backgroundColor: Colors.brown,
         iconSize: 10,
         items: [
+          BottomNavigationBarItem(
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/setting.png',color: Colors.black,),),
+            icon: new SizedBox(height:20 ,child: Image.asset('assets/icons/setting.png'),),
+            label: 'الاعدادات',
+          ),
           BottomNavigationBarItem(
             activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/radio_blue.png',color: Colors.black,),),
             icon: new SizedBox(height:20 ,child: Image.asset('assets/icons/radio_blue.png'),),
