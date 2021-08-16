@@ -86,6 +86,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
 
           child: Container(
             width: double.infinity,
+            /*
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/bg3.png'),
@@ -93,6 +94,8 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
               ),
             ),
 
+
+             */
             child: Container(
               margin: EdgeInsets.only(top: 85),
               child: Column(
@@ -158,7 +161,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                       onPressed: adder,
 
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.brown[200],
+                     //   primary: Colors.brown[200],
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(10.0),
                         ),
