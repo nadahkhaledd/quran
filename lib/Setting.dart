@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:quran/appconfig.dart';
+
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -8,9 +11,9 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  late appConfig provider;
   void LanguageMenu()
   {
-
       showModalBottomSheet(
           context: context,
           builder: (buildContext){
@@ -23,10 +26,11 @@ class _SettingState extends State<Setting> {
                       color: Colors.white.withOpacity(0.0),
                       child: InkWell(
                         onTap: (){
+                          provider.changeLanguage('ar');
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('Arabic',style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black),),
                         ),
                       ),
                     ),
@@ -37,6 +41,7 @@ class _SettingState extends State<Setting> {
                       color: Colors.white.withOpacity(0.0),
                       child: InkWell(
                         onTap: (){
+                          provider.changeLanguage('en');
                         },
                         child: Container(
                           color: Colors.transparent,
@@ -74,7 +79,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('Light',style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: Colors.black),),
                         ),
                       ),
                     ),
@@ -88,7 +93,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('Dark',style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: Colors.black),),
                         ),
                       ),
                     ),
@@ -129,7 +134,7 @@ class _SettingState extends State<Setting> {
                 },
                 child: Container(
                   color: Colors.transparent,
-                  child: Text('language',style: TextStyle(fontSize: 32,color: Colors.black),),
+                  child: Text(AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 32,color: Colors.black),),
                 ),
               ),
             ),
@@ -146,7 +151,7 @@ class _SettingState extends State<Setting> {
                 child: Container(
                   width: double.infinity,
                   color: Colors.transparent,
-                  child: Text('theme',style: TextStyle(fontSize: 32,color: Colors.black),),
+                  child: Text(AppLocalizations.of(context)!.theme,style: TextStyle(fontSize: 32,color: Colors.black),),
                 ),
               ),
             ),

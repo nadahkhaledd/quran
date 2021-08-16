@@ -37,8 +37,7 @@ class _MyAppState extends State<MyApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: AppLocalizations.supportedLocales,
-            /*   theme: ThemeData(
-        fontFamily: 'Cairo',),*/
+            locale: Locale.fromSubtags(languageCode: provider.currentLanguage),
             debugShowCheckedModeBanner: false,
             home: navbar()
         );

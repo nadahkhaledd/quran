@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 
 class Sebha extends StatefulWidget  {
@@ -85,8 +87,6 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
         body: Center(
 
           child: Container(
-            width: double.infinity,
-            /*
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/bg3.png'),
@@ -94,18 +94,20 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
               ),
             ),
 
-
-             */
             child: Container(
               margin: EdgeInsets.only(top: 85),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Center(
+                      child: Text(AppLocalizations.of(context)!.islami,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold))),
                   Stack(
                     alignment: Alignment.topCenter,
-
                     children: [
-
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
@@ -139,7 +141,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
 
 
 
-                  Container(child: Text("عدد التسبيحات",style: TextStyle(fontSize: 30),)),
+                  Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style: TextStyle(fontSize: 30),)),
                   Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(

@@ -1,4 +1,16 @@
 {
-  "islami" : "Islami"
-
+  "islami" : "Islami",
+  "hadeeth": "Hadeeth",
+  "surahName" : "Surah Name",
+  "verses": "number of verses",
+  "surah": "Surah",
+  "tasbeehCount": "Tasbeeh count",
+  "settings": "settings",
+  "radio": "radio",
+  "tasbeeh": "tasbeeh",
+  "quran": "Quran",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
 }

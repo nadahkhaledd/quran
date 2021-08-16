@@ -38,7 +38,7 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                       color: Colors.brown
                   ),
                 ),
-                    child:  Center(child: Text('الاحاديث', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold))),
+                    child:  Center(child: Text(AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold))),
               ),
 
             Expanded(child:
@@ -62,7 +62,7 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                             Container(
                                 padding: const EdgeInsets.all(4.0),
                               child: Center(child:
-                              Text('${index+1} حديث رقم  ', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),)
+                              Text('${index+1} ' + AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),)
                               ),
                             ),
                             onTap: () {

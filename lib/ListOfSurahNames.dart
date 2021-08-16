@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/surahContent.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ListOfSurahNames extends StatefulWidget {
   static const routeName = 'SurahNames';
@@ -35,7 +35,8 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
     'الأنبياء',
     'الحج',
     'المؤمنون',
-    'النور'
+    'النور',
+
   ];
   late List<String> AyatNumbers = [
     '7',
@@ -48,7 +49,110 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
     '75',
     '129',
     '109',
-    '123'
+    '123',
+    '111',
+    '43',
+    '52',
+    '99',
+    '128',
+    '111',
+    '110',
+    '98',
+    '135',
+    '112',
+    '78',
+    '118',
+    '64',
+    '77',
+    '227',
+    '93',
+    '88',
+    '69',
+    '60',
+    '34',
+    '30',
+    '73',
+    '54',
+    '45',
+    '83',
+    '182',
+    '88',
+    '75',
+    '85',
+    '54',
+    '53',
+    '89',
+    '59',
+    '37',
+    '35',
+    '38',
+    '29',
+    '18',
+    '45',
+    '60',
+    '49',
+    '62',
+    '55',
+    '78',
+    '96',
+    '29',
+    '22',
+    '24',
+    '13',
+    '14',
+    '11',
+    '11',
+    '18',
+    '12',
+    '12',
+    '30',
+    '52',
+    '52',
+    '44',
+    '28',
+    '28',
+    '20',
+    '56',
+    '40',
+    '31',
+    '50',
+    '40',
+    '46',
+    '42',
+    '29',
+    '19',
+    '36',
+    '25',
+    '22',
+    '17',
+    '19',
+    '26',
+    '30',
+    '20',
+    '15',
+    '21',
+    '11',
+    '8',
+    '5',
+    '19',
+    '5',
+    '8',
+    '8',
+    '11',
+    '11',
+    '8',
+    '3',
+    '9',
+    '5',
+    '4',
+    '6',
+    '3',
+    '6',
+    '3',
+    '5',
+    '4',
+    '5',
+    '6'
   ];
 
   @override
@@ -64,7 +168,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-                child: Text('إسلامي',
+                child: Text(AppLocalizations.of(context)!.islami,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 25,
@@ -76,47 +180,39 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
               width: 135,
               height: 155,
             )),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.brown),
-                    ),
-                    child: Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Text('عدد الايات',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                  ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.brown,
                 ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.brown,
+              ),
+              child: Row(
+                children: [
+                   Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(5.0),
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: Text(AppLocalizations.of(context)!.verses,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                       ),
-                    ),
-                    child: Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Text('السورة',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold)),
+
+                   Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(5.0),
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: Text(AppLocalizations.of(context)!.surahName,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             Expanded(
                 child: Container(
@@ -128,7 +224,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
               ),
               child: Expanded(
                 child: Container(
-                  alignment: AlignmentDirectional.centerEnd,
+                  //alignment: AlignmentDirectional.centerEnd,
                   child: ListView.builder(
                       padding: const EdgeInsets.all(8),
                       itemCount: names.length,
@@ -136,7 +232,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                         return GestureDetector(
                             child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                alignment: AlignmentDirectional.centerEnd,
+                                //alignment: AlignmentDirectional.centerEnd,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
@@ -164,8 +260,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                 ),
                               );
                               Navigator.of(context).push(route);
-                            }
-                            );
+                            });
                       }),
                 ),
               ),
