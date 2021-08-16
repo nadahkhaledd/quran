@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quran/ListOfSurahNames.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
@@ -44,7 +45,8 @@ class _surahContentState extends State<surahContent> {
       _writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for (int i = 0; i < surahReadedContet.length; i++) {
-      finalSurahContent.add(surahReadedContet[i] +   '[' + ayahNumber.toString() + ']'  );
+      finalSurahContent
+          .add(surahReadedContet[i] + '[' + ayahNumber.toString() + ']');
       ayahNumber++;
     }
     ayahNumber = 1;
@@ -62,31 +64,34 @@ class _surahContentState extends State<surahContent> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(right: 5.0),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_sharp,
-                        color: Colors.black,
-                        size: 35.0,
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(right: 5.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_sharp,
+                          color: Colors.black,
+                          size: 35.0,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => navbar(),
+                            ),
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => navbar(),
-                          ),
-                        );
-                      },
                     ),
                   ),
-                  Container(
+                   Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
-                      'إسلامي',
+                      AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black
                       ),
                     ),
                   ),
@@ -107,10 +112,12 @@ class _surahContentState extends State<surahContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            'سورة  ' + widget.surahName ,
+                            AppLocalizations.of(context)!.surah +' ' + widget.surahName ,
+
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
+                              color: Colors.black
                             ),
                           ),
                         ),
@@ -153,7 +160,11 @@ class _surahContentState extends State<surahContent> {
                                 shrinkWrap: true,
                                 itemCount: surahLength,
                                 itemBuilder: (context, index) {
-                                  return Text(finalSurahContent[index], textAlign: TextAlign.end,);
+                                  return Text(finalSurahContent[index], style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
+                                  return Text(
+                                    finalSurahContent[index],
+                                    textAlign: TextAlign.end,
+                                  );
                                 },
                               ),
                             ],

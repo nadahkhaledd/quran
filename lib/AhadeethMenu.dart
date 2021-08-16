@@ -1,9 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/AhadeethContent.dart';
-import 'package:quran/surahContent.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadeethMenu extends StatefulWidget {
   static const routeName = 'SurahNames';
@@ -27,20 +25,20 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text('إسلامي', style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
+            Center(child: Text( AppLocalizations.of(context)!.islami, style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold))),
 
-             Center(child:
-              Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 200, height: 200,)
-              ),
+            Center(child:
+            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 200, height: 200,)
+            ),
 
-             Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.brown
-                  ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: Colors.brown
                 ),
-                    child:  Center(child: Text('الاحاديث', style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold))),
               ),
+              child:  Center(child: Text(AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold))),
+            ),
 
             Expanded(child:
             Container(
@@ -61,9 +59,9 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                         return GestureDetector(
                             child:
                             Container(
-                                padding: const EdgeInsets.all(4.0),
+                              padding: const EdgeInsets.all(4.0),
                               child: Center(child:
-                              Text('${index+1} حديث رقم  ', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),)
+                              Text('${index+1} ' + AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),)
                               ),
                             ),
                             onTap: () {
@@ -86,5 +84,4 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
     );
   }
 }
-
 

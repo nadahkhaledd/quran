@@ -1,0 +1,16 @@
+{
+  "islami" : "إسلامي",
+  "hadeeth": "حديث",
+  "surahName" : "اسم السورة",
+  "verses": "عدد الآيات",
+  "surah": "سورة",
+  "tasbeehCount": "عدد التسبيحات",
+  "settings": "إعدادات",
+  "radio": "الراديو",
+  "tasbeeh": "تسبيح",
+  "quran": "قرآن",
+  "language": "اللغة",
+  "theme": "الشكل",
+  "light": "مضيء",
+  "dark": "مظلم"
+}
