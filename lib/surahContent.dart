@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:provider/provider.dart';
 import 'package:quran/ListOfSurahNames.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
+
+import 'appconfig.dart';
 
 class surahContent extends StatefulWidget {
   String surahName = "surah name";
@@ -61,9 +64,12 @@ class _surahContentState extends State<surahContent> {
     ayahNumber = 1;
     surahLength = finalSurahContent.length;
   }
+  late appConfig provider;
 
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -183,7 +189,10 @@ class _surahContentState extends State<surahContent> {
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'),
+              image: AssetImage(
+                  provider.isDarkMode()
+                      ? 'assets/images/bg.png'
+                      : 'assets/images/bg3.png'),
               fit: BoxFit.fill,
             ),
           ),

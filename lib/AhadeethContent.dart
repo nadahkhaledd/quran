@@ -2,12 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:provider/provider.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
 
+import 'appconfig.dart';
+
 class AhadeethContent extends StatefulWidget {
   late int hadeethNumber;
+  late appConfig provider;
 
   static const routeName = 'AhadeethContent';
 
@@ -43,9 +47,12 @@ class _AhadeethContentState extends State<AhadeethContent> {
     ayahNumber = 1;
     surahLength = finalAhadeethContent.length;
   }*/
+  late appConfig provider;
 
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -164,7 +171,10 @@ class _AhadeethContentState extends State<AhadeethContent> {
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'),
+              image: AssetImage(
+                  provider.isDarkMode()
+                      ? 'assets/images/bg.png'
+                      : 'assets/images/bg3.png'),
               fit: BoxFit.fill,
             ),
           ),
