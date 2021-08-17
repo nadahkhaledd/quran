@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class appConfig extends ChangeNotifier {
   appConfig(){}
   ThemeMode themeMode = ThemeMode.dark;
- // Locale locale = Locale.fromSubtags(languageCode: 'en');
   String currentLanguage = 'en';
   void toggleTheme() {
     if (themeMode == ThemeMode.light)

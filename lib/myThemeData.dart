@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 class MythemeData{
  static  final lightTheme=ThemeData(
-   //  scaffoldBackgroundColor:
-   );
+primaryColor: Colors.black,
+   bottomAppBarColor: Colors.brown[200],
+   accentColor: Colors.black,
+ );
+
  static  final darkTheme=ThemeData(
-  colorScheme:  ColorScheme.dark(),
-   bottomNavigationBarTheme: BottomNavigationBarThemeData(
-     //backgroundColor: Color.fromRGBO(20, 26, 46, 255),
-     backgroundColor: Colors.red,
-         type: BottomNavigationBarType.fixed,
-   )
+   primaryColor: Colors.white,
+   bottomAppBarColor: Color(0xFF141A2E),
+   accentColor: Color(0xFFFBC927),
+
  );
 
 }

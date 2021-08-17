@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:quran/ListOfSurahNames.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
@@ -38,15 +37,25 @@ class _surahContentState extends State<surahContent> {
     setState(() {
       _data = _loadedData;
     });
+    //print(_data);
     surahReadedContet = _data.split('\n');
   }
 
+/*
+  void _showSurahsContent() //this function is implemented for debugging purposes
+  {
+    for(int i =0;i<surahReadedContet.length;i++)
+      {
+        print(surahReadedContet[i]+'\n');
+      }
+  }
+*/
   void
-      _writingSurahInProperForm() //this function adds the numbering to the surah
+  _writingSurahInProperForm() //this function adds the numbering to the surah
   {
     for (int i = 0; i < surahReadedContet.length; i++) {
-      finalSurahContent
-          .add(surahReadedContet[i] + '[' + ayahNumber.toString() + ']');
+      finalSurahContent.add(surahReadedContet[i]);
+      finalSurahContent.add('[' + ayahNumber.toString() + ']');
       ayahNumber++;
     }
     ayahNumber = 1;
@@ -64,34 +73,32 @@ class _surahContentState extends State<surahContent> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.only(right: 5.0),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_sharp,
-                          color: Colors.black,
-                          size: 35.0,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
-                        },
+                  Container(
+                    padding: EdgeInsets.only(right: 5.0),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_sharp,
+                        color:Theme.of(context).accentColor,
+                        size: 35.0,
                       ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => navbar(),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                   Container(
+                  Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
-                      AppLocalizations.of(context)!.islami,
+                      'إسلامي',
                       style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black
                       ),
                     ),
                   ),
@@ -112,12 +119,11 @@ class _surahContentState extends State<surahContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            AppLocalizations.of(context)!.surah +' ' + widget.surahName ,
-
+                            "${widget.surahName + 'سورة '}",
                             style: TextStyle(
+                              color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
-                              color: Colors.black
                             ),
                           ),
                         ),
@@ -130,7 +136,7 @@ class _surahContentState extends State<surahContent> {
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
                               size: 30.0,
-                              color: Colors.black,
+                              color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
                               _loadData(widget.surahNumber);
@@ -145,26 +151,20 @@ class _surahContentState extends State<surahContent> {
                       indent: 18.0,
                       endIndent: 18.0,
                       thickness: 1.0,
-                      color: Colors.brown,
+                      color: Theme.of(context).accentColor,
                     ),
                     Expanded(
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: SingleChildScrollView(
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
                               ListView.builder(
                                 physics: NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: surahLength,
                                 itemBuilder: (context, index) {
-                                  return Text(finalSurahContent[index], style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
-                                  return Text(
-                                    finalSurahContent[index],
-                                    textAlign: TextAlign.end,
-                                  );
+                                  return Text(finalSurahContent[index],style: TextStyle(color: Theme.of(context).accentColor),);
                                 },
                               ),
                             ],

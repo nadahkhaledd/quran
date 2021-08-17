@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/AhadeethMenu.dart';
 import 'package:quran/Setting.dart';
 import 'ListOfSurahNames.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'Sebha.dart';
 
 class navbar extends StatefulWidget {
@@ -34,10 +33,6 @@ class navbarState extends State<navbar> {
         ));
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
@@ -49,38 +44,43 @@ class navbarState extends State<navbar> {
     ];
 
     return Scaffold(
-        body: Center(
+
+      body: Container(
+
+        child: Center(
+
           child: _pages.elementAt(selected), //New
         ),
+      ),
       bottomNavigationBar:BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.brown,
+        backgroundColor: Theme.of(context).bottomAppBarColor,
         iconSize: 10,
         items: [
           BottomNavigationBarItem(
-            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/setting.png',color: Colors.black,),),
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/setting.png',color: Theme.of(context).accentColor,),),
             icon: new SizedBox(height:20 ,child: Image.asset('assets/icons/setting.png'),),
-            label: AppLocalizations.of(context)!.settings,
+            label: 'الاعدادات',
           ),
           BottomNavigationBarItem(
-            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/radio_blue.png',color: Colors.black,),),
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/radio_blue.png',color:Theme.of(context).accentColor,),),
             icon: new SizedBox(height:20 ,child: Image.asset('assets/icons/radio_blue.png'),),
-            label: AppLocalizations.of(context)!.radio,
+            label: 'الراديو',
           ),
           BottomNavigationBarItem(
-            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/sebha_blue.png',color: Colors.black,),),
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/sebha_blue.png',color: Theme.of(context).accentColor,),),
             icon:new SizedBox(height: 20,child: Image.asset('assets/icons/sebha_blue.png'),),
-            label: AppLocalizations.of(context)!.tasbeeh,
+            label: 'التسبيح',
           ),
           BottomNavigationBarItem(
-            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/Group 6.png',color: Colors.black,),),
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/Group 6.png',color:Theme.of(context).accentColor,),),
             icon: new SizedBox(height:20 ,child: Image.asset('assets/icons/Group 6.png'),),
-            label: AppLocalizations.of(context)!.hadeeth,
+            label: 'الاحاديث',
           ),
           BottomNavigationBarItem(
-            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/quran.png',color: Colors.black,),),
+            activeIcon: new SizedBox(height: 30,child: Image.asset('assets/icons/quran.png',color:Theme.of(context).accentColor,),),
             icon: new SizedBox(height: 20,child: Image.asset('assets/icons/quran.png',),),
-            label: AppLocalizations.of(context)!.quran,
+            label: 'القرآن',
           ),
         ],
         fixedColor: Colors.black,

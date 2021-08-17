@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:quran/myThemeData.dart';
 
 
 class Sebha extends StatefulWidget  {
@@ -87,8 +86,11 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
         body: Center(
 
           child: Container(
+            width: double.infinity,
+
             decoration: BoxDecoration(
               image: DecorationImage(
+
                 image: AssetImage('assets/images/bg3.png'),
                 fit: BoxFit.fill,
               ),
@@ -99,23 +101,19 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Center(
-                      child: Text(AppLocalizations.of(context)!.islami,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold))),
                   Stack(
                     alignment: Alignment.topCenter,
+
                     children: [
-                      Padding(
+
+                   Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                             margin: EdgeInsets.only(bottom:80),
                             //alignment: Alignment.topRight,
                             child: Image(
 
-                              //alignment:Alignment.topCenter,
+                              // alignment:Alignment.topCenter,
                               image:AssetImage('assets/icons/head of seb7a.png') ,)),
                       ),
                       Container(
@@ -141,29 +139,29 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
 
 
 
-                  Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style: TextStyle(fontSize: 30),)),
+                  Container(child: Text("عدد التسبيحات",style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor),)),
                   Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: new BorderRadius.circular(10.0),
-                        color: Colors.brown[200],
+                        color:Theme.of(context).bottomAppBarColor,
 
                       ),
                       width: 50,
                       height: 50,
                       child: Text(
-                        add.toString(),style: TextStyle(fontSize: 30,),
+                        add.toString(),style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor),
 
                       )
                   ),
                   Container(
                     child: ElevatedButton(
 
-                      child: Text(value ,style: TextStyle(fontSize: 20),),
+                      child: Text(value ,style: TextStyle(fontSize: 20,color: Theme.of(context).primaryColor),),
                       onPressed: adder,
 
                       style: ElevatedButton.styleFrom(
-                     //   primary: Colors.brown[200],
+                          primary:Theme.of(context).bottomAppBarColor,
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(10.0),
                         ),

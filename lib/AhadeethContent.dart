@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 
@@ -35,6 +33,16 @@ class _AhadeethContentState extends State<AhadeethContent> {
   }
 
 
+  /*_writingSurahInProperForm() //this function adds the numbering to the surah
+  {
+    for (int i = 0; i < surahReadedContet.length; i++) {
+      finalAhadeethContent.add(surahReadedContet[i]);
+      finalAhadeethContent.add('[' + ayahNumber.toString() + ']');
+      ayahNumber++;
+    }
+    ayahNumber = 1;
+    surahLength = finalAhadeethContent.length;
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -47,34 +55,33 @@ class _AhadeethContentState extends State<AhadeethContent> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.only(right: 5.0),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_sharp,
-                          color: Colors.black,
-                          size: 35.0,
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
-                        },
+                  Container(
+                    padding: EdgeInsets.only(right: 5.0),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_sharp,
+                        color:Theme.of(context).primaryColor,
+                        size: 35.0,
                       ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => navbar(),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
-                      AppLocalizations.of(context)!.islami,
+
+                      'إسلامي',
                       style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black
                       ),
                     ),
                   ),
@@ -95,11 +102,11 @@ class _AhadeethContentState extends State<AhadeethContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            '${widget.hadeethNumber} ' + AppLocalizations.of(context)!.hadeeth ,
+                            '${widget.hadeethNumber} حديث ' ,
                             style: TextStyle(
+                              color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
-                              color: Colors.black
                             ),
                           ),
                         ),
@@ -112,7 +119,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
                               size: 30.0,
-                              color: Colors.black,
+                              color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
                               _loadData(widget.hadeethNumber);
@@ -138,7 +145,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                                 shrinkWrap: true,
                                 itemCount: 1,
                                 itemBuilder: (context, index) {
-                                  return Text(finalAhadeethContent, style: TextStyle(color: Colors.black),);
+                                  return Text(finalAhadeethContent,style: TextStyle(color: Theme.of(context).accentColor),);
                                 },
                               ),
                             ],
