@@ -14,55 +14,7 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   late appConfig provider ; //= Provider.of<appConfig>();
 
-  void LanguageMenu()
-  {
-      showModalBottomSheet(
-          context: context,
-          builder: (buildContext){
-            return Container(
-              child:Column(
-                children: [
-                  Container(
-                    margin:  EdgeInsets.only(top: 20,bottom: 20),
-                    child: Material(
-                      color: Colors.white.withOpacity(0.0),
-                      child: InkWell(
-                        onTap: (){
-                          provider.changeLanguage('ar');
-                        },
-                        child: Container(
-                          color: Colors.transparent,
-                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black),),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    //margin:  EdgeInsets.only(top: 140,bottom: 80),
-                    child: Material(
-                      color: Colors.white.withOpacity(0.0),
-                      child: InkWell(
-                        onTap: (){
-                          provider.changeLanguage('en');
-                        },
-                        child: Container(
-                          color: Colors.transparent,
-                          child: Text('English',style: TextStyle(fontSize: 32,color: Colors.black),),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              )
 
-
-            );
-      });
-
-
-
-
-  }
   void themeMenu()
   {
 
@@ -114,6 +66,7 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
+     provider = Provider.of<appConfig>(context);
     return Container(
         decoration: BoxDecoration(
         image: DecorationImage(
@@ -164,4 +117,57 @@ class _SettingState extends State<Setting> {
     );
 
   }
+
+
+
+  void LanguageMenu()
+  {
+    showModalBottomSheet(
+        context: context,
+        builder: (buildContext){
+          return Container(
+              child:Column(
+                children: [
+                  Container(
+                    margin:  EdgeInsets.only(top: 20,bottom: 20),
+                    child: Material(
+                      color: Colors.white.withOpacity(0.0),
+                      child: InkWell(
+                        onTap: (){
+                          provider.changeLanguage('ar');
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black),),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    //margin:  EdgeInsets.only(top: 140,bottom: 80),
+                    child: Material(
+                      color: Colors.white.withOpacity(0.0),
+                      child: InkWell(
+                        onTap: (){
+                          provider.changeLanguage('en');
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Text('English',style: TextStyle(fontSize: 32,color: Colors.black),),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+
+
+          );
+        });
+
+
+
+
+  }
+
 }
