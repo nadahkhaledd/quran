@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/appconfig.dart';
 import 'package:quran/myThemeData.dart';
 
 
@@ -14,6 +16,7 @@ class Sebha extends StatefulWidget  {
 
 class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
   late AnimationController _controller;
+  late appConfig provider;
   int add = 0;
   int swap = 0;
   String value = 'Start';
@@ -80,6 +83,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
   }
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
     return MaterialApp(
       home: Scaffold(
 
@@ -91,7 +95,11 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
             decoration: BoxDecoration(
               image: DecorationImage(
 
-                image: AssetImage('assets/images/bg3.png'),
+                image: AssetImage(
+                    provider.isDarkMode()
+                        ? 'assets/images/bg.png'
+                        : 'assets/images/bg3.png'
+                ),
                 fit: BoxFit.fill,
               ),
             ),

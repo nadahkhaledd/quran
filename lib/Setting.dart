@@ -78,10 +78,11 @@ class _SettingState extends State<Setting> {
                       color: Colors.white.withOpacity(0.0),
                       child: InkWell(
                         onTap: (){
+                          provider.toggleTheme();
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.black:Colors.red),),
                         ),
                       ),
                     ),
@@ -92,10 +93,12 @@ class _SettingState extends State<Setting> {
                       color: Colors.white.withOpacity(0.0),
                       child: InkWell(
                         onTap: (){
+                          provider.toggleTheme();
+
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Colors.black),),
                         ),
                       ),
                     ),
@@ -114,6 +117,8 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
+
     return Container(
         decoration: BoxDecoration(
         image: DecorationImage(
