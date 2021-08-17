@@ -6,8 +6,11 @@ class MythemeData{
    );
  static  final darkTheme=ThemeData(
   colorScheme:  ColorScheme.dark(),
-   scaffoldBackgroundColor: Colors.yellow,
-     backgroundColor: Colors.yellow,
+   bottomNavigationBarTheme: BottomNavigationBarThemeData(
+     //backgroundColor: Color.fromRGBO(20, 26, 46, 255),
+     backgroundColor: Colors.red,
+         type: BottomNavigationBarType.fixed,
+   )
  );
 
 }
