@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
-
 import 'package:quran/navbar.dart';
+import 'appconfig.dart';
 
 class AhadeethContent extends StatefulWidget {
   late int hadeethNumber;
+  late appConfig provider;
 
   static const routeName = 'AhadeethContent';
 
@@ -32,20 +34,17 @@ class _AhadeethContentState extends State<AhadeethContent> {
     //print(_data);
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadData(widget.hadeethNumber);
+  }
 
-  /*_writingSurahInProperForm() //this function adds the numbering to the surah
-  {
-    for (int i = 0; i < surahReadedContet.length; i++) {
-      finalAhadeethContent.add(surahReadedContet[i]);
-      finalAhadeethContent.add('[' + ayahNumber.toString() + ']');
-      ayahNumber++;
-    }
-    ayahNumber = 1;
-    surahLength = finalAhadeethContent.length;
-  }*/
-
+  late appConfig provider;
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -55,29 +54,32 @@ class _AhadeethContentState extends State<AhadeethContent> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(right: 5.0),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_sharp,
-                        color: Colors.black,
-                        size: 35.0,
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(right: 5.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_sharp,
+                          color:Theme.of(context).primaryColor,
+                          size: 35.0,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => navbar(),
+                            ),
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => navbar(),
-                          ),
-                        );
-                      },
                     ),
                   ),
-                  Container(
+                 Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
-                      'إسلامي',
+                      AppLocalizations.of(context)!.islami,
                       style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 35.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -100,8 +102,9 @@ class _AhadeethContentState extends State<AhadeethContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            '${widget.hadeethNumber} حديث ' ,
+                            '${widget.hadeethNumber} ' + AppLocalizations.of(context)!.hadeeth ,
                             style: TextStyle(
+                              color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
                             ),
@@ -116,10 +119,9 @@ class _AhadeethContentState extends State<AhadeethContent> {
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
                               size: 30.0,
-                              color: Colors.black,
+                              color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
-                              _loadData(widget.hadeethNumber);
                             },
                           ),
                         ),
@@ -132,24 +134,19 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       color: Colors.brown,
                     ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: <Widget>[
-                              ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 1,
-                                itemBuilder: (context, index) {
-                                  return Text(finalAhadeethContent);
-                                },
-                              ),
-                            ],
-                          ),
+                      child: Container(
+                        child: finalAhadeethContent =='' ?Center(
+                          child: CircularProgressIndicator(),
+                        ):ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 1,
+                          itemBuilder: (context, index) {
+                            return
+                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                          },
                         ),
                       ),
-                    ),
+                      ),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -161,7 +158,10 @@ class _AhadeethContentState extends State<AhadeethContent> {
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/bg3.png'),
+              image: AssetImage(
+                  provider.isDarkMode()
+                      ? 'assets/images/bg.png'
+                      : 'assets/images/bg3.png'),
               fit: BoxFit.fill,
             ),
           ),
