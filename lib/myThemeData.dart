@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 class MythemeData{
  static  final lightTheme=ThemeData(
 primaryColor: Colors.black,
-   bottomAppBarColor: Colors.brown[200],
+   bottomAppBarColor: Colors.brown,
    accentColor: Colors.black,
  );
 
