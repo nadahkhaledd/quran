@@ -26,7 +26,7 @@ class _surahContentState extends State<surahContent> {
   String _data = '';
 
   int ayahNumber = 1;
-  late int surahLength = 0;
+   int surahLength = 0;
 
   late List<String> surahReadedContet = [];
   late List<String> finalSurahContent = [];
@@ -35,24 +35,32 @@ class _surahContentState extends State<surahContent> {
   Future<void> _loadData(int surahNumber) async {
     final _loadedData = await rootBundle
         .loadString('assets/ayat/' + surahNumber.toString() + '.txt');
-    setState(() {
       _data = _loadedData;
-    });
-    surahReadedContet = _data.split('\n');
+      surahReadedContet = _data.split('\n');
   }
 
-  void
-      _writingSurahInProperForm() //this function adds the numbering to the surah
-  {
+ //this function adds the numbering to the surah
+  void _writingSurahInProperForm() async {
+    await _loadData(widget.surahNumber);
+
     for (int i = 0; i < surahReadedContet.length; i++) {
       finalSurahContent
           .add(surahReadedContet[i] + '[' + ayahNumber.toString() + ']');
       ayahNumber++;
     }
     ayahNumber = 1;
-    surahLength = finalSurahContent.length;
+    setState(() {
+      surahLength = finalSurahContent.length;
+
+    });
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _writingSurahInProperForm();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,9 +141,6 @@ class _surahContentState extends State<surahContent> {
                               color: Colors.black,
                             ),
                             onPressed: () {
-                              _loadData(widget.surahNumber);
-
-                              _writingSurahInProperForm();
                             },
                           ),
                         ),
@@ -148,27 +153,20 @@ class _surahContentState extends State<surahContent> {
                       color: Colors.brown,
                     ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: <Widget>[
-                              ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: surahLength,
-                                itemBuilder: (context, index) {
-                                  return Text(finalSurahContent[index], style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
-                                  return Text(
-                                    finalSurahContent[index],
-                                    textAlign: TextAlign.end,
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
+                      child: Container(
+                        child: surahLength ==0 ?Center(
+                          child: CircularProgressIndicator(),
+                        ):ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: finalSurahContent.length,
+                          itemBuilder: (context, index) {
+                            return
+                              Text(finalSurahContent[index], style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
+                            return Text(
+                              finalSurahContent[index],
+                              textAlign: TextAlign.end,
+                            );
+                          },
                         ),
                       ),
                     ),

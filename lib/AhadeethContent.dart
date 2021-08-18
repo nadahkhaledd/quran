@@ -34,6 +34,12 @@ class _AhadeethContentState extends State<AhadeethContent> {
     //print(_data);
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadData(widget.hadeethNumber);
+  }
 
 
   @override
@@ -115,7 +121,6 @@ class _AhadeethContentState extends State<AhadeethContent> {
                               color: Colors.black,
                             ),
                             onPressed: () {
-                              _loadData(widget.hadeethNumber);
                             },
                           ),
                         ),
@@ -128,24 +133,23 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       color: Colors.brown,
                     ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: <Widget>[
-                              ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 1,
-                                itemBuilder: (context, index) {
-                                  return Text(finalAhadeethContent, style: TextStyle(color: Colors.black),);
-                                },
-                              ),
-                            ],
-                          ),
+                      child: Container(
+                        child: finalAhadeethContent =='' ?Center(
+                          child: CircularProgressIndicator(),
+                        ):ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 1,
+                          itemBuilder: (context, index) {
+                            return
+                              Text(finalAhadeethContent, style: TextStyle(color: Colors.black), textAlign: TextAlign.end,);
+                            return Text(
+                              finalAhadeethContent,
+                              textAlign: TextAlign.end,
+                            );
+                          },
                         ),
                       ),
-                    ),
+                      ),
                   ],
                 ),
                 decoration: BoxDecoration(
