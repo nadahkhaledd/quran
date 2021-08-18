@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:provider/provider.dart';
 import 'dart:async';
 
 import 'package:quran/navbar.dart';
@@ -36,23 +37,16 @@ class _AhadeethContentState extends State<AhadeethContent> {
     //print(_data);
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadData(widget.hadeethNumber);
+  }
 
-  /*_writingSurahInProperForm() //this function adds the numbering to the surah
-  {
-    for (int i = 0; i < surahReadedContet.length; i++) {
-      finalAhadeethContent.add(surahReadedContet[i]);
-      finalAhadeethContent.add('[' + ayahNumber.toString() + ']');
-      ayahNumber++;
-    }
-    ayahNumber = 1;
-    surahLength = finalAhadeethContent.length;
-  }*/
-  late appConfig provider;
 
   @override
   Widget build(BuildContext context) {
-    provider=Provider.of<appConfig>(context);
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -83,8 +77,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                   Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
-
-                      'إسلامي',
+                      AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 35.0,
@@ -109,7 +102,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            '${widget.hadeethNumber} حديث ' ,
+                            '${widget.hadeethNumber} ' + AppLocalizations.of(context)!.hadeeth ,
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
@@ -129,7 +122,6 @@ class _AhadeethContentState extends State<AhadeethContent> {
                               color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
-                              _loadData(widget.hadeethNumber);
                             },
                           ),
                         ),
@@ -142,24 +134,19 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       color: Colors.brown,
                     ),
                     Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: <Widget>[
-                              ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 1,
-                                itemBuilder: (context, index) {
-                                  return Text(finalAhadeethContent,style: TextStyle(color: Theme.of(context).accentColor),);
-                                },
-                              ),
-                            ],
-                          ),
+                      child: Container(
+                        child: finalAhadeethContent =='' ?Center(
+                          child: CircularProgressIndicator(),
+                        ):ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 1,
+                          itemBuilder: (context, index) {
+                            return
+                              Text(finalAhadeethContent, style: TextStyle(Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                          },
                         ),
                       ),
-                    ),
+                      ),
                   ],
                 ),
                 decoration: BoxDecoration(
