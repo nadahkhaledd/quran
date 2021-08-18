@@ -33,28 +33,43 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text(AppLocalizations.of(context)!.islami, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 35, fontWeight: FontWeight.bold))),
+            Center(
+                child: Text(AppLocalizations.of(context)!.islami,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ElMessiri'))),
 
             Center(child:
-            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 220, height: 220,)
+            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 150, height: 150,)
             ),
 
             Container(
+              padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: Theme.of(context).accentColor
-                ),
+                  border: Border(
+                      top: BorderSide( color: Theme.of(context).accentColor),
+                      right: BorderSide( color: Theme.of(context).accentColor),
+                      left: BorderSide( color: Theme.of(context).accentColor)
+                  )
+                //Border.all(color: Theme.of(context).accentColor),
               ),
-              child:  Center(child: Text(AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold))),
+              child:  Center(
+                  child: Text(AppLocalizations.of(context)!.hadeeth,
+                      style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'ElMessiri'))),
             ),
 
             Expanded(child:
             Container(
               //alignment: AlignmentDirectional.centerEnd,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color:Theme.of(context).accentColor,
-                ),
+                  border: Border(
+                      top: BorderSide( color: Theme.of(context).accentColor),
+                      right: BorderSide( color: Theme.of(context).accentColor),
+                      left: BorderSide( color: Theme.of(context).accentColor)
+                  )
+                //Border.all(color: Theme.of(context).accentColor),
               ),
               child:
               Expanded(
@@ -69,7 +84,9 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                             Container(
                               padding: const EdgeInsets.all(8.0),
                               child: Center(child:
-                              Text('${index+1} ' + AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 18, fontWeight: FontWeight.bold),)
+                              Text( provider.isEnglish()? 'Hadeeth No.${index+1}' : ' حديث رقم ${index+1} ',
+                               style: TextStyle(color: Theme.of(context).primaryColor,
+                                   fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ElMessiri'),)
                               ),
                             ),
                             onTap: () {

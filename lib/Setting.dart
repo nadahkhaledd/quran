@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +33,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('العربية',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Theme.of(context).primaryColor:Colors.red),),
+                          child: Text('العربية',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Theme.of(context).primaryColor:Colors.red,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -49,7 +48,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('English',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Colors.red :Theme.of(context).primaryColor),),
+                          child: Text('English',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Colors.red :Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -85,7 +84,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Theme.of(context).primaryColor:Colors.red),),
+                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Theme.of(context).primaryColor:Colors.red,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -101,7 +100,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Theme.of(context).primaryColor),),
+                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -134,10 +133,10 @@ class _SettingState extends State<Setting> {
     )
         ,
       child: Column(
-
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
+
             padding: EdgeInsets.only(top: 10,bottom: 10),
             margin: EdgeInsets.only(top: 160),
             color: provider.isDarkMode()==true ?Colors.black12 :Colors.white60,
