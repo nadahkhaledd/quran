@@ -172,7 +172,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   : 'assets/images/bg3.png'),
               fit: BoxFit.fill)),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(top: 35.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -180,15 +180,21 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                 child: Text(AppLocalizations.of(context)!.islami,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 25,
+                        fontSize: 35,
                         fontWeight: FontWeight.bold))),
+            SizedBox(
+              height: 25.0,
+            ),
             Center(
                 child: Image(
               image: AssetImage('assets/icons/Screenshot.png'),
               alignment: Alignment.center,
-              width: 135,
-              height: 155,
+              width: 150,
+              height: 150,
             )),
+            SizedBox(
+              height: 25.0,
+            ),
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Theme.of(context).accentColor),
@@ -198,7 +204,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
-                      alignment: AlignmentDirectional.centerEnd,
+                      alignment: AlignmentDirectional.centerStart,
                       child: Text(AppLocalizations.of(context)!.verses,
                           style: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -209,7 +215,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
-                      alignment: AlignmentDirectional.centerEnd,
+                      alignment: AlignmentDirectional.centerStart,
                       child: Text(AppLocalizations.of(context)!.surahName,
                           style: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -222,7 +228,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
             ),
             Expanded(
               child: Container(
-                alignment: AlignmentDirectional.centerEnd,
+                alignment: AlignmentDirectional.centerStart,
                 decoration: BoxDecoration(
                   border: Border.all(color: Theme.of(context).accentColor),
                 ),
@@ -233,7 +239,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                       return GestureDetector(
                           child: Container(
                             padding: const EdgeInsets.all(4.0),
-                            alignment: AlignmentDirectional.centerEnd,
+                            alignment: AlignmentDirectional.centerStart,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [

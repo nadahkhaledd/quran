@@ -48,7 +48,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 25.0, bottom: 24.0),
+          padding: EdgeInsets.only(top: 35.0, bottom: 24.0),
           child: Column(
             children: [
               Row(
@@ -88,12 +88,12 @@ class _AhadeethContentState extends State<AhadeethContent> {
                 ],
               ),
               SizedBox(
-                height: 30.0,
+                height: 25.0,
               ),
               Container(
                 padding: EdgeInsets.only(top: 24.0, right: 18.0, left: 18.0),
-                width: MediaQuery.of(context).size.width * .85,
-                height: MediaQuery.of(context).size.height * .82,
+                width: MediaQuery.of(context).size.width /1.3,
+                height: MediaQuery.of(context).size.height /1.2,
                 child: Column(
                   children: [
                     Row(
