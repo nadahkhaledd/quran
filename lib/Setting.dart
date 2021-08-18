@@ -32,7 +32,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -47,7 +47,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('English',style: TextStyle(fontSize: 32,color: Colors.black),),
+                          child: Text('English',style: TextStyle(fontSize: 32,color: Colors.black,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -82,7 +82,8 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.black:Colors.red),),
+                          child: Text(AppLocalizations.of(context)!.light,style:
+                          TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.black:Colors.red,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -98,7 +99,8 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Colors.black),),
+                          child: Text(AppLocalizations.of(context)!.dark,style:
+                          TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Colors.black,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),

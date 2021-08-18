@@ -15,6 +15,7 @@ class appConfig extends ChangeNotifier {
   bool isDarkMode() {
     return themeMode == ThemeMode.dark;
   }
+  bool isEnglish() => currentLanguage == 'en';
 
   void changeLanguage(String language) {
     if (currentLanguage == language) return;

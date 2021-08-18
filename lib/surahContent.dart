@@ -104,8 +104,9 @@ class _surahContentState extends State<surahContent> {
                       AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 35.0,
+                        fontSize: 27,
                         fontWeight: FontWeight.bold,
+                          fontFamily: 'ElMessiri'
                       ),
                     ),
                   ),
@@ -127,11 +128,11 @@ class _surahContentState extends State<surahContent> {
                           alignment: Alignment.topCenter,
                           child: Text(
                             AppLocalizations.of(context)!.surah +' ' + widget.surahName ,
-
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
+                                fontFamily: 'ElMessiri'
                             ),
                           ),
                         ),
@@ -167,7 +168,8 @@ class _surahContentState extends State<surahContent> {
                           itemCount: finalSurahContent.length,
                           itemBuilder: (context, index) {
                             return
-                              Text(finalSurahContent[index], style: TextStyle(color: Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                              Text(finalSurahContent[index], style: TextStyle(color: Theme.of(context).accentColor, fontFamily: 'ElMessiri'),
+                                textAlign: TextAlign.end,);
                           },
                         ),
                       ),
