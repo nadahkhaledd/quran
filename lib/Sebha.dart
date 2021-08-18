@@ -106,25 +106,25 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
             ),
 
             child: Container(
-              margin: EdgeInsets.only(top: 85),
+         //     alignment: Alignment.center,
+              margin: EdgeInsets.only(top:10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Center(
                       child: Text(AppLocalizations.of(context)!.islami,
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Theme.of(context).primaryColor,
                               fontSize: 25,
                               fontWeight: FontWeight.bold))),
-                  Stack(
-                    alignment: Alignment.topCenter,
-
+                  Column(
+                  //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               //     alignment: Alignment.topCenter,
                     children: [
-
                    Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                            margin: EdgeInsets.only(bottom:80),
+                      //      margin: EdgeInsets.only(bottom:80),
                             //alignment: Alignment.topRight,
                             child: Image(
 
@@ -132,6 +132,8 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                               image:AssetImage('assets/icons/head of seb7a.png') ,)),
                       ),
                       Container(
+                       // margin: EdgeInsets.only(bottom:100),
+                     //   alignment: Alignment.topCenter,
                         child: RotationTransition(
                           turns: Tween(begin: 0.0,end:1.0).animate(_controller)
                             ..addStatusListener((status) {
