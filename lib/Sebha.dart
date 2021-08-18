@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/appconfig.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/myThemeData.dart';
 
 
@@ -109,6 +110,12 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Center(
+                      child: Text(AppLocalizations.of(context)!.islami,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold))),
                   Stack(
                     alignment: Alignment.topCenter,
 
@@ -147,7 +154,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
 
 
 
-                  Container(child: Text("عدد التسبيحات",style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor),)),
+                  Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor),)),
                   Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(

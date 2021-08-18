@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
-
 import 'package:quran/navbar.dart';
-
 import 'appconfig.dart';
 
 class AhadeethContent extends StatefulWidget {
@@ -44,9 +41,10 @@ class _AhadeethContentState extends State<AhadeethContent> {
     _loadData(widget.hadeethNumber);
   }
 
-
+  late appConfig provider;
   @override
   Widget build(BuildContext context) {
+    provider=Provider.of<appConfig>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -56,25 +54,27 @@ class _AhadeethContentState extends State<AhadeethContent> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(right: 5.0),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_sharp,
-                        color:Theme.of(context).primaryColor,
-                        size: 35.0,
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.only(right: 5.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_sharp,
+                          color:Theme.of(context).primaryColor,
+                          size: 35.0,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => navbar(),
+                            ),
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => navbar(),
-                          ),
-                        );
-                      },
                     ),
                   ),
-                  Container(
+                 Container(
                     padding: EdgeInsets.only(left: 90.0, right: 135.0),
                     child: Text(
                       AppLocalizations.of(context)!.islami,
@@ -142,7 +142,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                           itemCount: 1,
                           itemBuilder: (context, index) {
                             return
-                              Text(finalAhadeethContent, style: TextStyle(Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor), textAlign: TextAlign.end,);
                           },
                         ),
                       ),

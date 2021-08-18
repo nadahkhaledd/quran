@@ -39,8 +39,7 @@ class _surahContentState extends State<surahContent> {
     final _loadedData = await rootBundle
         .loadString('assets/ayat/' + surahNumber.toString() + '.txt');
       _data = _loadedData;
-    });
-    surahReadedContet = _data.split('\n');
+      surahReadedContet = _data.split('\n');
   }
 
  //this function adds the numbering to the surah

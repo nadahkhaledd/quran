@@ -1,9 +1,9 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/appconfig.dart';
 import 'package:quran/surahContent.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 class ListOfSurahNames extends StatefulWidget {
@@ -14,142 +14,259 @@ class ListOfSurahNames extends StatefulWidget {
 }
 
 class _ListOfSurahNamesState extends State<ListOfSurahNames> {
-  late List<String> names = [];
-  late List<String> AyatNumbers = [];
-  late String _dataOfNames = '';
-  late String _dataOfNumbersOfAyat = '';
+  late List<String> names = [
+    'الفاتحة',
+    'البقرة',
+    'آل عمران',
+    'النساء',
+    'المائدة',
+    'الانعام',
+    'الاعراف',
+    'الانفال',
+    'التوبة',
+    'يونس',
+    'هود',
+    'يوسف',
+    'الرعد',
+    'ابراهيم',
+    'الحجر',
+    'النحل',
+    'الاسراء',
+    'الكهف',
+    'مريم',
+    'طه',
+    'الأنبياء',
+    'الحج',
+    'المؤمنون',
+    'النور',
+  ];
+  late List<String> AyatNumbers = [
+    '7',
+    '286',
+    '200',
+    '176',
+    '120',
+    '165',
+    '206',
+    '75',
+    '129',
+    '109',
+    '123',
+    '111',
+    '43',
+    '52',
+    '99',
+    '128',
+    '111',
+    '110',
+    '98',
+    '135',
+    '112',
+    '78',
+    '118',
+    '64',
+    '77',
+    '227',
+    '93',
+    '88',
+    '69',
+    '60',
+    '34',
+    '30',
+    '73',
+    '54',
+    '45',
+    '83',
+    '182',
+    '88',
+    '75',
+    '85',
+    '54',
+    '53',
+    '89',
+    '59',
+    '37',
+    '35',
+    '38',
+    '29',
+    '18',
+    '45',
+    '60',
+    '49',
+    '62',
+    '55',
+    '78',
+    '96',
+    '29',
+    '22',
+    '24',
+    '13',
+    '14',
+    '11',
+    '11',
+    '18',
+    '12',
+    '12',
+    '30',
+    '52',
+    '52',
+    '44',
+    '28',
+    '28',
+    '20',
+    '56',
+    '40',
+    '31',
+    '50',
+    '40',
+    '46',
+    '42',
+    '29',
+    '19',
+    '36',
+    '25',
+    '22',
+    '17',
+    '19',
+    '26',
+    '30',
+    '20',
+    '15',
+    '21',
+    '11',
+    '8',
+    '5',
+    '19',
+    '5',
+    '8',
+    '8',
+    '11',
+    '11',
+    '8',
+    '3',
+    '9',
+    '5',
+    '4',
+    '6',
+    '3',
+    '6',
+    '3',
+    '5',
+    '4',
+    '5',
+    '6'
+  ];
 
-  Future<void> _loadData() async {
-    final _loadedNames = await rootBundle.loadString('assets/Names.txt');
-    final _loadedNumbers = await rootBundle.loadString('assets/NumbersOfAyat.txt');
-    setState(() {
-      _dataOfNames = _loadedNames;
-      _dataOfNumbersOfAyat = _loadedNumbers;
-    });
-  }
+  late appConfig provider;
 
-  void LoadFiles()
-  {
-    _loadData();
-    names = _dataOfNames.split('\n');
-    AyatNumbers = _dataOfNumbersOfAyat.split('\n');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    LoadFiles();
-  }
-late appConfig provider;
   @override
   Widget build(BuildContext context) {
-    provider=Provider.of<appConfig>(context);
+    provider = Provider.of<appConfig>(context);
 
     return Container(
       //constraints: BoxConstraints.expand(),
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(
-                  provider.isDarkMode()
-                      ? 'assets/images/bg.png'
-                      : 'assets/images/bg3.png'),
+              image: AssetImage(provider.isDarkMode()
+                  ? 'assets/images/bg.png'
+                  : 'assets/images/bg3.png'),
               fit: BoxFit.fill)),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text('إسلامي', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 25, fontWeight: FontWeight.bold))),
-
-            GestureDetector(
-              child: Center(child:
-              Image(image: AssetImage('assets/icons/Screenshot.png'),alignment: Alignment.center, width: 135, height: 155,)
-              ),
-              onTap: LoadFiles,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context).accentColor
-                      ),
-                    ),
-                    child: Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: AlignmentDirectional.centerEnd,
-                        child:  Text('عدد الايات', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Theme.of(context).accentColor
-                      ),
-                    ),
-                    child: Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: AlignmentDirectional.centerEnd,
-                        child:  Text('السورة', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
-            Expanded(child:
+            Center(
+                child: Text(AppLocalizations.of(context)!.islami,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold))),
+            Center(
+                child: Image(
+              image: AssetImage('assets/icons/Screenshot.png'),
+              alignment: Alignment.center,
+              width: 135,
+              height: 155,
+            )),
             Container(
-              //alignment: AlignmentDirectional.centerEnd,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).accentColor
-                ),
+                border: Border.all(color: Theme.of(context).accentColor),
               ),
-              child:
-              Expanded(
-                child: Container(
-                  alignment: AlignmentDirectional.centerEnd,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: names.length,
-                      itemBuilder: (BuildContext context, int index){
-                        return GestureDetector(
-                            child:
-                            Container(
-                                padding: const EdgeInsets.all(4.0),
-                                alignment: AlignmentDirectional.centerEnd,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Expanded(child:
-                                    Text(AyatNumbers[index], style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 18, fontWeight: FontWeight.bold),)
-                                    ),
-                                    Expanded(child:
-                                    Text(names[index], style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 18, fontWeight: FontWeight.bold))),
-                                  ],
-                                )
-                            ),
-                            onTap: () {
-                              var route = new MaterialPageRoute(
-                                builder: (BuildContext context) => surahContent(surahName: names[index] , surahNumber: (index+1),),
-                              );
-                              Navigator.of(context).push(route);
-                            }
-                          /*Navigator.pushNamed(context, surahContent.routeName, arguments: {index+1,names[index]})*/
-                        );
-                      }
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(5.0),
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Text(AppLocalizations.of(context)!.verses,
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                    ),
                   ),
-                ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.all(5.0),
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Text(AppLocalizations.of(context)!.surahName,
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ],
               ),
-            )
-            )
+            ),
+            Expanded(
+              child: Container(
+                alignment: AlignmentDirectional.centerEnd,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Theme.of(context).accentColor),
+                ),
+                child: ListView.builder(
+                    padding: const EdgeInsets.all(8),
+                    itemCount: names.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                          child: Container(
+                            padding: const EdgeInsets.all(4.0),
+                            alignment: AlignmentDirectional.centerEnd,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Expanded(
+                                    child: Text(
+                                  AyatNumbers[index],
+                                  style: TextStyle(
+                                      color: Theme.of(context).primaryColor,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                                Expanded(
+                                    child: Text(names[index],
+                                        style: TextStyle(
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold))),
+                              ],
+                            ),
+                          ),
+                          onTap: () {
+                            var route = new MaterialPageRoute(
+                              builder: (BuildContext context) => surahContent(
+                                surahName: names[index],
+                                surahNumber: (index + 1),
+                              ),
+                            );
+                            Navigator.of(context).push(route);
+                          });
+                    }),
+              ),
+            ),
           ],
         ),
       ),

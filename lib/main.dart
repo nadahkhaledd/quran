@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/ListOfSurahNames.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran/appconfig.dart';
 import 'package:quran/myThemeData.dart';
 import 'package:quran/navbar.dart';
@@ -29,6 +30,15 @@ class _MyAppState extends State<MyApp> {
             themeMode: provider.themeMode,
             darkTheme:MythemeData.darkTheme,
             theme:MythemeData.lightTheme,
+
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: Locale.fromSubtags(languageCode: provider.currentLanguage),
             debugShowCheckedModeBanner: false,
 
             home:navbar()
