@@ -43,7 +43,7 @@ class _surahContentState extends State<surahContent> {
   }
 
  //this function adds the numbering to the surah
-  void _writingSurahInProperForm() async {
+  void _writeSurahInProperForm() async {
     await _loadData(widget.surahNumber);
 
     for (int i = 0; i < surahReadedContet.length; i++) {
@@ -63,7 +63,7 @@ class _surahContentState extends State<surahContent> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _writingSurahInProperForm();
+    _writeSurahInProperForm();
   }
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _surahContentState extends State<surahContent> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 25.0, bottom: 24.0),
+          padding: EdgeInsets.only(top: 35.0, bottom: 24.0),
           child: Column(
             children: [
               Row(
@@ -112,7 +112,7 @@ class _surahContentState extends State<surahContent> {
                 ],
               ),
               SizedBox(
-                height: 30.0,
+                height: 25.0,
               ),
               Container(
                 padding: EdgeInsets.only(top: 24.0, right: 18.0, left: 18.0),

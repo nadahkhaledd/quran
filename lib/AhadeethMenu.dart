@@ -29,14 +29,14 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                   : 'assets/images/bg3.png'),
               fit: BoxFit.fill)),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(top: 35.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text(AppLocalizations.of(context)!.islami, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 25, fontWeight: FontWeight.bold))),
+            Center(child: Text(AppLocalizations.of(context)!.islami, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 35, fontWeight: FontWeight.bold))),
 
             Center(child:
-            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 200, height: 200,)
+            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 220, height: 220,)
             ),
 
             Container(
@@ -61,13 +61,13 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                 child: Container(
                   alignment: AlignmentDirectional.centerEnd,
                   child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(10),
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index){
                         return GestureDetector(
                             child:
                             Container(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(child:
                               Text('${index+1} ' + AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 18, fontWeight: FontWeight.bold),)
                               ),
