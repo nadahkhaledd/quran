@@ -80,8 +80,9 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 35.0,
+                        fontSize: 27,
                         fontWeight: FontWeight.bold,
+                          fontFamily: 'ElMessiri'
                       ),
                     ),
                   ),
@@ -102,11 +103,12 @@ class _AhadeethContentState extends State<AhadeethContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            '${widget.hadeethNumber} ' + AppLocalizations.of(context)!.hadeeth ,
+                            provider.isEnglish()? 'Hadeeth No.${widget.hadeethNumber}' : ' حديث رقم ${widget.hadeethNumber} ',
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
                               fontSize: 25.0,
+                                fontFamily: 'ElMessiri'
                             ),
                           ),
                         ),
@@ -142,7 +144,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                           itemCount: 1,
                           itemBuilder: (context, index) {
                             return
-                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor,fontFamily: 'ElMessiri'), textAlign: TextAlign.end,);
                           },
                         ),
                       ),

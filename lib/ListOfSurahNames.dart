@@ -180,24 +180,26 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                 child: Text(AppLocalizations.of(context)!.islami,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold))),
-            SizedBox(
-              height: 25.0,
-            ),
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ElMessiri'))),
+
             Center(
                 child: Image(
               image: AssetImage('assets/icons/Screenshot.png'),
               alignment: Alignment.center,
-              width: 150,
-              height: 150,
+              width: 135,
+              height: 135,
             )),
-            SizedBox(
-              height: 25.0,
-            ),
+
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).accentColor),
+                border: Border(
+                  top: BorderSide( color: Theme.of(context).accentColor),
+                    right: BorderSide( color: Theme.of(context).accentColor),
+                    left: BorderSide( color: Theme.of(context).accentColor)
+                )
+                //Border.all(color: Theme.of(context).accentColor),
               ),
               child: Row(
                 children: [
@@ -205,22 +207,28 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
                       alignment: AlignmentDirectional.centerStart,
-                      child: Text(AppLocalizations.of(context)!.verses,
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                      child: Center(
+                        child: Text(AppLocalizations.of(context)!.verses,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'ElMessiri')),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
                       alignment: AlignmentDirectional.centerStart,
-                      child: Text(AppLocalizations.of(context)!.surahName,
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                      child: Center(
+                        child: Text(AppLocalizations.of(context)!.surahName,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'ElMessiri')),
+                      ),
                     ),
                   ),
                 ],
@@ -228,9 +236,14 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
             ),
             Expanded(
               child: Container(
-                alignment: AlignmentDirectional.centerStart,
+                alignment: AlignmentDirectional.centerEnd,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Theme.of(context).accentColor),
+                    border: Border(
+                        top: BorderSide( color: Theme.of(context).accentColor),
+                        right: BorderSide( color: Theme.of(context).accentColor),
+                        left: BorderSide( color: Theme.of(context).accentColor)
+                    )
+                  //Border.all(color: Theme.of(context).accentColor),
                 ),
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
@@ -239,7 +252,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                       return GestureDetector(
                           child: Container(
                             padding: const EdgeInsets.all(4.0),
-                            alignment: AlignmentDirectional.centerStart,
+                            alignment: AlignmentDirectional.bottomEnd,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -248,8 +261,9 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                   AyatNumbers[index],
                                   style: TextStyle(
                                       color: Theme.of(context).primaryColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'ElMessiri'),
                                 )),
                                 Expanded(
                                     child: Text(names[index],
@@ -257,7 +271,8 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                             color:
                                                 Theme.of(context).primaryColor,
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold))),
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'ElMessiri'))),
                               ],
                             ),
                           ),
