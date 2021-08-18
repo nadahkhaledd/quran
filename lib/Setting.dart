@@ -20,6 +20,7 @@ class _SettingState extends State<Setting> {
           context: context,
           builder: (buildContext){
             return Container(
+              color: Theme.of(context).secondaryHeaderColor,
               child:Column(
                 children: [
                   Container(
@@ -32,7 +33,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('العربية',style: TextStyle(fontSize: 32,color: Colors.black,fontFamily: 'ElMessiri'),),
+                          child: Text('العربية',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Theme.of(context).primaryColor:Colors.red,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -47,7 +48,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('English',style: TextStyle(fontSize: 32,color: Colors.black,fontFamily: 'ElMessiri'),),
+                          child: Text('English',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Colors.red :Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -70,6 +71,7 @@ class _SettingState extends State<Setting> {
         context: context,
         builder: (buildContext){
           return Container(
+             color: Theme.of(context).secondaryHeaderColor,
               child:Column(
                 children: [
                   Container(
@@ -82,8 +84,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.light,style:
-                          TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.black:Colors.red,fontFamily: 'ElMessiri'),),
+                          child: Text(AppLocalizations.of(context)!.light,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Theme.of(context).primaryColor:Colors.red,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -99,8 +100,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text(AppLocalizations.of(context)!.dark,style:
-                          TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Colors.black,fontFamily: 'ElMessiri'),),
+                          child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red:Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
                         ),
                       ),
                     ),
@@ -124,7 +124,10 @@ class _SettingState extends State<Setting> {
     return Container(
         decoration: BoxDecoration(
         image: DecorationImage(
-        image: AssetImage("assets/images/bg3.png"),
+        image: AssetImage(
+            provider.isDarkMode()
+            ? 'assets/images/bg.png'
+            : 'assets/images/bg3.png'),
     fit: BoxFit.fill)
 
     )
@@ -142,8 +145,8 @@ class _SettingState extends State<Setting> {
                       LanguageMenu();
                 },
                 child: Container(
-                  color: Colors.transparent,
-                  child: Text(AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 32,color: Colors.black),),
+                color: Colors.transparent,
+                  child: Text(AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 32,color:Theme.of(context).primaryColor),),
                 ),
               ),
             ),
@@ -160,7 +163,7 @@ class _SettingState extends State<Setting> {
                 child: Container(
                   width: double.infinity,
                   color: Colors.transparent,
-                  child: Text(AppLocalizations.of(context)!.theme,style: TextStyle(fontSize: 32,color: Colors.black),),
+                  child: Text(AppLocalizations.of(context)!.theme,style: TextStyle(fontSize: 32,color:Theme.of(context).primaryColor),),
                 ),
               ),
             ),
