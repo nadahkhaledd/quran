@@ -23,9 +23,4 @@ class appConfig extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool isEnglish()
-  {
-    return currentLanguage=='en';
-  }
-
 }

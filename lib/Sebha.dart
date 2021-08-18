@@ -148,6 +148,9 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                 ),
                 Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style:
                 TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),)),
+                SizedBox(
+                  height: 25,
+                ),
                 Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -161,6 +164,9 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                       add.toString(),style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),
 
                     )
+                ),
+                SizedBox(
+                  height: 25,
                 ),
                 Container(
                   child: ElevatedButton(
