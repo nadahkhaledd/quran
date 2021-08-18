@@ -49,7 +49,7 @@ class _SettingState extends State<Setting> {
                         },
                         child: Container(
                           color: Colors.transparent,
-                          child: Text('English',style: TextStyle(fontSize: 32,color: provider.isDarkMode()? Colors.red :Theme.of(context).primaryColor),),
+                          child: Text('English',style: TextStyle(fontSize: 32,color: provider.isEnglish()? Colors.red :Theme.of(context).primaryColor),),
                         ),
                       ),
                     ),
