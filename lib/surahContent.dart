@@ -88,12 +88,8 @@ class _surahContentState extends State<surahContent> {
                           size: 35.0,
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
+                          Navigator.pop(context);
+
                         },
                       ),
                     ),

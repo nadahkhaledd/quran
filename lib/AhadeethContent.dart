@@ -64,12 +64,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                           size: 35.0,
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
                       ),
                     ),

@@ -137,7 +137,9 @@ class _SettingState extends State<Setting> {
         children: [
           Container(
 
-            margin: EdgeInsets.only(top: 140,bottom: 80,left:20,right: 100),
+            padding: EdgeInsets.only(top: 10,bottom: 10),
+            margin: EdgeInsets.only(top: 160),
+            color: provider.isDarkMode()==true ?Colors.black12 :Colors.white60,
             child: Material(
               color: Colors.white.withOpacity(0.0),
               child: InkWell(
@@ -146,14 +148,16 @@ class _SettingState extends State<Setting> {
                 },
                 child: Container(
                 color: Colors.transparent,
-                  child: Text(AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 32,color:Theme.of(context).primaryColor),),
+                  child: Text(AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 30,color:Theme.of(context).primaryColor),textAlign: TextAlign.center,),
                 ),
               ),
             ),
           )
           ,
           Container(
-            margin: EdgeInsets.only(left:20,right: 100),
+            padding: EdgeInsets.only(top: 10,bottom: 10),
+            margin: EdgeInsets.only(top: 20,),
+            color: provider.isDarkMode()==true ?Colors.black12 :Colors.white60,
             child: Material(
                color: Colors.white.withOpacity(0.0),
               child: InkWell(
@@ -163,7 +167,7 @@ class _SettingState extends State<Setting> {
                 child: Container(
                   width: double.infinity,
                   color: Colors.transparent,
-                  child: Text(AppLocalizations.of(context)!.theme,style: TextStyle(fontSize: 32,color:Theme.of(context).primaryColor),),
+                  child: Text(AppLocalizations.of(context)!.theme,style: TextStyle(fontSize: 30,color:Theme.of(context).primaryColor),textAlign: TextAlign.center,),
                 ),
               ),
             ),
