@@ -5,6 +5,7 @@ import 'package:quran/Setting.dart';
 import 'ListOfSurahNames.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'Sebha.dart';
+import 'package:quran/RadioPage.dart';
 import 'appconfig.dart';
 
 class navbar extends StatefulWidget {
@@ -45,7 +46,7 @@ class navbarState extends State<navbar> {
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
       Setting(),
-      tempPages(),
+      RadioPage(),
       Sebha(),
       AhadeethMenu(),
       ListOfSurahNames(),

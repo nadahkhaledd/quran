@@ -39,7 +39,7 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                         color: Theme.of(context).primaryColor,
                         fontSize: 27,
                         fontWeight: FontWeight.bold,
-                        fontFamily: 'ElMessiri'))),
+                        fontFamily: 'ReemKufi'))),
 
             Center(child:
             Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 150, height: 150,)
@@ -50,27 +50,17 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
               decoration: BoxDecoration(
                   border: Border(
                       top: BorderSide( color: Theme.of(context).accentColor),
-                      right: BorderSide( color: Theme.of(context).accentColor),
-                      left: BorderSide( color: Theme.of(context).accentColor)
+                      bottom: BorderSide( color: Theme.of(context).accentColor),
                   )
                 //Border.all(color: Theme.of(context).accentColor),
               ),
               child:  Center(
                   child: Text(AppLocalizations.of(context)!.hadeeth,
-                      style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'ElMessiri'))),
+                      style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'ReemKufi'))),
             ),
 
             Expanded(child:
             Container(
-              //alignment: AlignmentDirectional.centerEnd,
-              decoration: BoxDecoration(
-                  border: Border(
-                      top: BorderSide( color: Theme.of(context).accentColor),
-                      right: BorderSide( color: Theme.of(context).accentColor),
-                      left: BorderSide( color: Theme.of(context).accentColor)
-                  )
-                //Border.all(color: Theme.of(context).accentColor),
-              ),
               child:
               Expanded(
                 child: Container(
@@ -86,7 +76,7 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                               child: Center(child:
                               Text( provider.isEnglish()? 'Hadeeth No.${index+1}' : ' حديث رقم ${index+1} ',
                                style: TextStyle(color: Theme.of(context).primaryColor,
-                                   fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ElMessiri'),)
+                                   fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ReemKufi'),)
                               ),
                             ),
                             onTap: () {

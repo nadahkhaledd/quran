@@ -72,7 +72,7 @@ class _surahContentState extends State<surahContent> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 35.0, bottom: 24.0),
+          padding: EdgeInsets.only(top: 25.0, bottom: 50.0),
           child: Column(
             children: [
               Row(
@@ -113,8 +113,8 @@ class _surahContentState extends State<surahContent> {
               ),
               Container(
                 padding: EdgeInsets.only(top: 24.0, right: 18.0, left: 18.0),
-                width: MediaQuery.of(context).size.width * .85,
-                height: MediaQuery.of(context).size.height * .82,
+                width: MediaQuery.of(context).size.width * .80,
+                height: MediaQuery.of(context).size.height * .78,
                 child: Column(
                   children: [
                     Row(
@@ -127,20 +127,17 @@ class _surahContentState extends State<surahContent> {
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
-                              fontSize: 25.0,
+                              fontSize: 22.0,
                                 fontFamily: 'ElMessiri'
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 32.0,
                         ),
                         Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
-                              size: 30.0,
+                              size: 27.0,
                               color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
@@ -173,7 +170,7 @@ class _surahContentState extends State<surahContent> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white70,
+                  color: provider.isDarkMode()? Theme.of(context).bottomAppBarColor : Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),

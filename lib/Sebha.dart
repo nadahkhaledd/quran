@@ -114,10 +114,10 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
              //     alignment: Alignment.topCenter,
                   children: [
                  Container(
-                    //      margin: EdgeInsets.only(bottom:80),
+                    margin: EdgeInsets.only(top:30),
                      //alignment: Alignment.topRight,
                      child: Image(
-                       height: 70, width: 70,
+                       height: 80, width: 80,
                        image:AssetImage('assets/icons/head of seb7a.png'))),
                     Container(
                      // margin: EdgeInsets.only(bottom:100),
@@ -132,8 +132,8 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                           }),
                         child: Image(
                           image: AssetImage('assets/icons/body of seb7a.png'),
-                          width: 95,
-                          height: 95,
+                          width: 135,
+                          height: 135,
                         ),
 
 
@@ -142,9 +142,8 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                   ],
                 ),
 
-
                 SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style:
                 TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),)),

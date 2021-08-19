@@ -78,8 +78,31 @@ flutter:
 
         - family: ElMessiri
           fonts:
-            - asset: fonts/ElMessiri-Regular.ttf
-            - asset: fonts/ElMessiri-SemiBold.ttf
+            - asset: fonts/Elmessiri/ElMessiri-Regular.ttf
+            - asset: fonts/ElMessiri/ElMessiri-SemiBold.ttf
+
+        - family: ReemKufi
+          fonts:
+            - asset: fonts/ReemKufi/ReemKufi-Regular.ttf
+            - asset: fonts/ReemKufi/ReemKufi-Medium.ttf
+            - asset: fonts/ReemKufi/ReemKufi-Bold.ttf
+
+        - family: Cabal
+          fonts:
+            - asset: fonts/Cabal/Cabal-w5j3.ttf
+            - asset: fonts/Cabal/CabalBold-78yP.ttf
+
+        - family: Caviar
+          fonts:
+            - asset: fonts/Caviar/Caviar_Dreams_Bold.ttf
+            - asset: fonts/Caviar/CaviarDreams.ttf
+            - asset: fonts/Caviar/CaviarDreams_BoldItalic.ttf
+            - asset: fonts/CaviarDreams_Italic.ttf
+
+        - family: islami
+          fonts:
+            - asset: fonts/islami/Mvdawlatulislam-Z8dJ.ttf
+      uses-material-design: true
   #
   #
   # For details regarding fonts from package dependencies,

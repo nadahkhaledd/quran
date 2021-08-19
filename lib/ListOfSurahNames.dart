@@ -196,8 +196,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide( color: Theme.of(context).accentColor),
-                    right: BorderSide( color: Theme.of(context).accentColor),
-                    left: BorderSide( color: Theme.of(context).accentColor)
+                    bottom: BorderSide( color: Theme.of(context).accentColor),
                 )
                 //Border.all(color: Theme.of(context).accentColor),
               ),
@@ -237,14 +236,6 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
             Expanded(
               child: Container(
                 alignment: AlignmentDirectional.centerEnd,
-                decoration: BoxDecoration(
-                    border: Border(
-                        top: BorderSide( color: Theme.of(context).accentColor),
-                        right: BorderSide( color: Theme.of(context).accentColor),
-                        left: BorderSide( color: Theme.of(context).accentColor)
-                    )
-                  //Border.all(color: Theme.of(context).accentColor),
-                ),
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     itemCount: names.length,
@@ -257,22 +248,37 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Expanded(
-                                    child: Text(
+                                    child: Center(
+                                      child: Text(
                                   AyatNumbers[index],
                                   style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'ElMessiri'),
-                                )),
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'ElMessiri'),
+                                ),
+                                    )),
                                 Expanded(
-                                    child: Text(names[index],
-                                        style: TextStyle(
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'ElMessiri'))),
+                                    child: Container(
+                                      decoration: provider.isEnglish()? (BoxDecoration(
+                                          border: Border(
+                                            left: BorderSide( color: Theme.of(context).accentColor),
+                                          )
+                                      )): (BoxDecoration(
+                                          border: Border(
+                                            right: BorderSide( color: Theme.of(context).accentColor),
+                                          )
+                                      )),
+                                      child: Center(
+                                        child: Text(names[index],
+                                            style: TextStyle(
+                                                color:
+                                                    Theme.of(context).primaryColor,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'ElMessiri')),
+                                      ),
+                                    )),
                               ],
                             ),
                           ),
