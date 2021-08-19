@@ -49,8 +49,8 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
               padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
                   border: Border(
-                      top: BorderSide( color: Theme.of(context).accentColor),
-                      bottom: BorderSide( color: Theme.of(context).accentColor),
+                      top: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown),
+                      bottom: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown),
                   )
                 //Border.all(color: Theme.of(context).accentColor),
               ),
