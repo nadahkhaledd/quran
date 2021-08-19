@@ -195,8 +195,8 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
             Container(
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide( color: Theme.of(context).accentColor),
-                    bottom: BorderSide( color: Theme.of(context).accentColor),
+                  top: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown,),
+                    bottom: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown,),
                 )
                 //Border.all(color: Theme.of(context).accentColor),
               ),
@@ -245,7 +245,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                             padding: const EdgeInsets.all(4.0),
                             alignment: AlignmentDirectional.bottomEnd,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
+
                               children: [
                                 Expanded(
                                     child: Center(
@@ -262,11 +262,11 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                                     child: Container(
                                       decoration: provider.isEnglish()? (BoxDecoration(
                                           border: Border(
-                                            left: BorderSide( color: Theme.of(context).accentColor),
+                                            left: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown),
                                           )
                                       )): (BoxDecoration(
                                           border: Border(
-                                            right: BorderSide( color: Theme.of(context).accentColor),
+                                            right: BorderSide( color: provider.isDarkMode()? Colors.yellow: Colors.brown),
                                           )
                                       )),
                                       child: Center(
