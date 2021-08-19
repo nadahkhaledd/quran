@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran/AhadeethMenu.dart';
 import 'package:quran/Setting.dart';
 import 'ListOfSurahNames.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'Sebha.dart';
+import 'package:quran/RadioPage.dart';
+import 'appconfig.dart';
 
 class navbar extends StatefulWidget {
 
   @override
   navbarState createState() => navbarState();
 }
+late appConfig provider;
 
 class navbarState extends State<navbar> {
   int selected=0;
@@ -25,11 +29,15 @@ class navbarState extends State<navbar> {
 
   tempPages()
   {
+    provider = Provider.of<appConfig>(context);
+
     return Container(
       //constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/bg3.png"),
+                image: AssetImage(provider.isDarkMode()
+                    ? 'assets/images/bg.png'
+                    : 'assets/images/bg3.png'),
                 fit: BoxFit.fill)
         ));
   }
@@ -38,7 +46,7 @@ class navbarState extends State<navbar> {
   Widget build(BuildContext context) {
     List<Widget> _pages = <Widget>[
       Setting(),
-      tempPages(),
+      RadioPage(),
       Sebha(),
       AhadeethMenu(),
       ListOfSurahNames(),

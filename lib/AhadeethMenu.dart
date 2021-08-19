@@ -29,47 +29,54 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                   : 'assets/images/bg3.png'),
               fit: BoxFit.fill)),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(top: 35.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: Text(AppLocalizations.of(context)!.islami, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 25, fontWeight: FontWeight.bold))),
+            Center(
+                child: Text(AppLocalizations.of(context)!.islami,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ReemKufi'))),
 
             Center(child:
-            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 200, height: 200,)
+            Image(image: AssetImage('assets/icons/ahadeethPage.png'),alignment: Alignment.center, width: 150, height: 150,)
             ),
 
             Container(
+              padding: const EdgeInsets.all(5.0),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: Theme.of(context).accentColor
-                ),
+                  border: Border(
+                      top: BorderSide( color: Theme.of(context).accentColor),
+                      bottom: BorderSide( color: Theme.of(context).accentColor),
+                  )
+                //Border.all(color: Theme.of(context).accentColor),
               ),
-              child:  Center(child: Text(AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold))),
+              child:  Center(
+                  child: Text(AppLocalizations.of(context)!.hadeeth,
+                      style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'ReemKufi'))),
             ),
 
             Expanded(child:
             Container(
-              //alignment: AlignmentDirectional.centerEnd,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color:Theme.of(context).accentColor,
-                ),
-              ),
               child:
               Expanded(
                 child: Container(
                   alignment: AlignmentDirectional.centerEnd,
                   child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(10),
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index){
                         return GestureDetector(
                             child:
                             Container(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(child:
-                              Text('${index+1} ' + AppLocalizations.of(context)!.hadeeth, style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 18, fontWeight: FontWeight.bold),)
+                              Text( provider.isEnglish()? 'Hadeeth No.${index+1}' : ' حديث رقم ${index+1} ',
+                               style: TextStyle(color: Theme.of(context).primaryColor,
+                                   fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ReemKufi'),)
                               ),
                             ),
                             onTap: () {

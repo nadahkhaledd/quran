@@ -43,7 +43,7 @@ class _surahContentState extends State<surahContent> {
   }
 
  //this function adds the numbering to the surah
-  void _writingSurahInProperForm() async {
+  void _writeSurahInProperForm() async {
     await _loadData(widget.surahNumber);
 
     for (int i = 0; i < surahReadedContet.length; i++) {
@@ -63,7 +63,7 @@ class _surahContentState extends State<surahContent> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _writingSurahInProperForm();
+    _writeSurahInProperForm();
   }
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _surahContentState extends State<surahContent> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 25.0, bottom: 24.0),
+          padding: EdgeInsets.only(top: 25.0, bottom: 50.0),
           child: Column(
             children: [
               Row(
@@ -88,12 +88,8 @@ class _surahContentState extends State<surahContent> {
                           size: 35.0,
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
+                          Navigator.pop(context);
+
                         },
                       ),
                     ),
@@ -104,20 +100,21 @@ class _surahContentState extends State<surahContent> {
                       AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 35.0,
+                        fontSize: 27,
                         fontWeight: FontWeight.bold,
+                          fontFamily: 'ElMessiri'
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 30.0,
+                height: 25.0,
               ),
               Container(
                 padding: EdgeInsets.only(top: 24.0, right: 18.0, left: 18.0),
-                width: MediaQuery.of(context).size.width * .85,
-                height: MediaQuery.of(context).size.height * .82,
+                width: MediaQuery.of(context).size.width * .80,
+                height: MediaQuery.of(context).size.height * .78,
                 child: Column(
                   children: [
                     Row(
@@ -127,23 +124,20 @@ class _surahContentState extends State<surahContent> {
                           alignment: Alignment.topCenter,
                           child: Text(
                             AppLocalizations.of(context)!.surah +' ' + widget.surahName ,
-
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
-                              fontSize: 25.0,
+                              fontSize: 22.0,
+                                fontFamily: 'ElMessiri'
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 32.0,
                         ),
                         Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
-                              size: 30.0,
+                              size: 27.0,
                               color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
@@ -167,7 +161,8 @@ class _surahContentState extends State<surahContent> {
                           itemCount: finalSurahContent.length,
                           itemBuilder: (context, index) {
                             return
-                              Text(finalSurahContent[index], style: TextStyle(color: Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                              Text(finalSurahContent[index], style: TextStyle(color: Theme.of(context).accentColor, fontFamily: 'ElMessiri'),
+                                textAlign: TextAlign.end,);
                           },
                         ),
                       ),
@@ -175,7 +170,7 @@ class _surahContentState extends State<surahContent> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white70,
+                  color: provider.isDarkMode()? Theme.of(context).bottomAppBarColor : Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),

@@ -172,7 +172,7 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                   : 'assets/images/bg3.png'),
               fit: BoxFit.fill)),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(top: 35.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -180,41 +180,54 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                 child: Text(AppLocalizations.of(context)!.islami,
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold))),
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'ElMessiri'))),
+
             Center(
                 child: Image(
               image: AssetImage('assets/icons/Screenshot.png'),
               alignment: Alignment.center,
               width: 135,
-              height: 155,
+              height: 135,
             )),
+
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).accentColor),
+                border: Border(
+                  top: BorderSide( color: Theme.of(context).accentColor),
+                    bottom: BorderSide( color: Theme.of(context).accentColor),
+                )
+                //Border.all(color: Theme.of(context).accentColor),
               ),
               child: Row(
                 children: [
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Text(AppLocalizations.of(context)!.verses,
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Center(
+                        child: Text(AppLocalizations.of(context)!.verses,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'ElMessiri')),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Text(AppLocalizations.of(context)!.surahName,
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold)),
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Center(
+                        child: Text(AppLocalizations.of(context)!.surahName,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'ElMessiri')),
+                      ),
                     ),
                   ),
                 ],
@@ -223,9 +236,6 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
             Expanded(
               child: Container(
                 alignment: AlignmentDirectional.centerEnd,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Theme.of(context).accentColor),
-                ),
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     itemCount: names.length,
@@ -233,25 +243,42 @@ class _ListOfSurahNamesState extends State<ListOfSurahNames> {
                       return GestureDetector(
                           child: Container(
                             padding: const EdgeInsets.all(4.0),
-                            alignment: AlignmentDirectional.centerEnd,
+                            alignment: AlignmentDirectional.bottomEnd,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Expanded(
-                                    child: Text(
+                                    child: Center(
+                                      child: Text(
                                   AyatNumbers[index],
                                   style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'ElMessiri'),
+                                ),
+                                    )),
                                 Expanded(
-                                    child: Text(names[index],
-                                        style: TextStyle(
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold))),
+                                    child: Container(
+                                      decoration: provider.isEnglish()? (BoxDecoration(
+                                          border: Border(
+                                            left: BorderSide( color: Theme.of(context).accentColor),
+                                          )
+                                      )): (BoxDecoration(
+                                          border: Border(
+                                            right: BorderSide( color: Theme.of(context).accentColor),
+                                          )
+                                      )),
+                                      child: Center(
+                                        child: Text(names[index],
+                                            style: TextStyle(
+                                                color:
+                                                    Theme.of(context).primaryColor,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'ElMessiri')),
+                                      ),
+                                    )),
                               ],
                             ),
                           ),

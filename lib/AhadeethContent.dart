@@ -48,7 +48,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 25.0, bottom: 24.0),
+          padding: EdgeInsets.only(top: 25.0, bottom: 50.0),
           child: Column(
             children: [
               Row(
@@ -64,12 +64,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                           size: 35.0,
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => navbar(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
                       ),
                     ),
@@ -80,20 +75,21 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       AppLocalizations.of(context)!.islami,
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 35.0,
+                        fontSize: 27,
                         fontWeight: FontWeight.bold,
+                          fontFamily: 'ReemKufi'
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 30.0,
+                height: 25.0,
               ),
               Container(
                 padding: EdgeInsets.only(top: 24.0, right: 18.0, left: 18.0),
-                width: MediaQuery.of(context).size.width * .85,
-                height: MediaQuery.of(context).size.height * .82,
+                width: MediaQuery.of(context).size.width /1.3,
+                height: MediaQuery.of(context).size.height /1.3,
                 child: Column(
                   children: [
                     Row(
@@ -102,23 +98,22 @@ class _AhadeethContentState extends State<AhadeethContent> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: Text(
-                            '${widget.hadeethNumber} ' + AppLocalizations.of(context)!.hadeeth ,
+                            provider.isEnglish()? 'Hadeeth No.${widget.hadeethNumber}' : ' حديث رقم ${widget.hadeethNumber} ',
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w900,
-                              fontSize: 25.0,
+                              fontSize: 22.0,
+                                fontFamily: 'ReemKufi'
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 32.0,
-                        ),
+
                         Align(
                           alignment: Alignment.topRight,
                           child: IconButton(
                             icon: Icon(
                               CupertinoIcons.arrowtriangle_right_circle_fill,
-                              size: 30.0,
+                              size: 27.0,
                               color:Theme.of(context).accentColor,
                             ),
                             onPressed: () {
@@ -128,8 +123,8 @@ class _AhadeethContentState extends State<AhadeethContent> {
                       ],
                     ),
                     Divider(
-                      indent: 18.0,
-                      endIndent: 18.0,
+                      indent: 13.0,
+                      endIndent: 13.0,
                       thickness: 1.0,
                       color: Colors.brown,
                     ),
@@ -142,7 +137,8 @@ class _AhadeethContentState extends State<AhadeethContent> {
                           itemCount: 1,
                           itemBuilder: (context, index) {
                             return
-                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor), textAlign: TextAlign.end,);
+                              Text(finalAhadeethContent, style: TextStyle(color:Theme.of(context).accentColor,
+                                  fontFamily: 'islami'), textAlign: TextAlign.end,);
                           },
                         ),
                       ),
@@ -150,7 +146,7 @@ class _AhadeethContentState extends State<AhadeethContent> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white70,
+                  color: provider.isDarkMode()? Theme.of(context).bottomAppBarColor : Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
               ),
