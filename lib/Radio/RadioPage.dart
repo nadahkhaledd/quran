@@ -94,11 +94,11 @@ class _RadioPageState extends State<RadioPage> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                   children: [
-                     listeningIcons(CupertinoIcons.backward_end_fill, next_channel, provider),
+                     listeningIcons(CupertinoIcons.backward_end_fill, next_channel),
 
-                    listeningIcons(CupertinoIcons.arrowtriangle_right_fill, next_channel,provider),
+                    listeningIcons(CupertinoIcons.arrowtriangle_right_fill, next_channel),
 
-                    listeningIcons(CupertinoIcons.forward_end_fill,next_channel, provider),
+                    listeningIcons(CupertinoIcons.forward_end_fill,next_channel),
                   ],
                 ),
             ),
