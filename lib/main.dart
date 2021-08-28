@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:quran/appconfig.dart';
-import 'package:quran/myThemeData.dart';
-import 'package:quran/navbar.dart';
-import 'package:quran/surahContent.dart';
-import 'package:quran/Sebha.dart';
+import 'package:quran/tools/appconfig.dart';
+import 'package:quran/tools/myThemeData.dart';
+import 'package:quran/singleNavbarPages/navbar.dart';
+
 
 void main() {
   runApp(MyApp());
