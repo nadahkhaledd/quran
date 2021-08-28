@@ -64,9 +64,9 @@ class _RadioPageState extends State<RadioPage> {
                 future: RadioFuture,
                 builder: (BuildContext, snapshot) {
                   if (snapshot.hasData) {
-                      radios = snapshot.data!.radios;
-                      print('from remote:' + snapshot.data!.radios.length.toString() + '\nfrom class: ' + radios.length.toString());
-                      channelName = (radios!= null)?radios[index].name??' ':'Radio';
+                    radios = snapshot.data!.radios;
+                    print('from remote:' + snapshot.data!.radios.length.toString() + '\nfrom class: ' + radios.length.toString());
+                    channelName = (radios!= null)?radios[index].name??' ':'Radio';
                     return Center(
                         child: Text(channelName,
                             style: TextStyle(color: provider.isDarkMode()
@@ -93,14 +93,14 @@ class _RadioPageState extends State<RadioPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                  children: [
-                     listeningIcons(CupertinoIcons.backward_end_fill, next_channel, provider),
+                children: [
+                  listeningIcons(CupertinoIcons.backward_end_fill, next_channel,provider),
 
-                    listeningIcons(CupertinoIcons.arrowtriangle_right_fill, next_channel,provider),
+                  listeningIcons(CupertinoIcons.arrowtriangle_right_fill, next_channel,provider),
 
-                    listeningIcons(CupertinoIcons.forward_end_fill,next_channel, provider),
-                  ],
-                ),
+                  listeningIcons(CupertinoIcons.forward_end_fill,next_channel,provider),
+                ],
+              ),
             ),
           ],
         ),

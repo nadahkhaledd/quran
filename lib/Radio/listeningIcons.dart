@@ -8,20 +8,28 @@ import 'package:quran/tools/appconfig.dart';
 
 
 
-class listeningIcons extends StatelessWidget {
+class listeningIcons extends StatefulWidget {
   late IconData icon;
   late appConfig provider;
   late Function buttonAction;
   listeningIcons(this.icon, this.buttonAction, this.provider);
 
   @override
+  _listeningIconsState createState() => _listeningIconsState();
+}
+
+class _listeningIconsState extends State<listeningIcons> {
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: IconButton(
-        icon: Icon(icon,
-          color: provider.isDarkMode()? Colors.yellow: Theme.of(context).bottomAppBarColor,
+        icon: Icon(widget.icon,
+          color: widget.provider.isDarkMode()? Colors.yellow: Theme.of(context).bottomAppBarColor,
           size: 25,),
-        onPressed: buttonAction(),
+        onPressed:()
+        {
+          widget.buttonAction();
+        }
       ),
     );
   }
