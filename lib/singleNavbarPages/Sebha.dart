@@ -161,7 +161,7 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                   child: ElevatedButton(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text(value ,style: TextStyle(fontSize: 20,color: Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
+                      child: Text(value ,style: TextStyle(fontSize: 20,color: Theme.of(context).accentColor,fontFamily: 'ElMessiri'),),
                     ),
                     onPressed: adder,
 

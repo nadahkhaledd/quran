@@ -7,6 +7,7 @@ import 'package:quran/model/RadioResponse.dart';
 import 'package:quran/model/Radios.dart';
 import 'package:quran/tools/appconfig.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:just_audio/just_audio.dart';
 
 class RadioPage extends StatefulWidget {
   static const routeName = 'RadioPage';
@@ -15,10 +16,12 @@ class RadioPage extends StatefulWidget {
 }
 
 class _RadioPageState extends State<RadioPage> {
+   final AudioPlayer radioPlayer = AudioPlayer();
   late Future<RadioResponse> RadioFuture;
   late appConfig provider;
   late List<Radios> radios = [];
   late String channelName = 'Channel Name';
+  late String RadioUrl = 'url';
   int index = 0;
 
   @override
@@ -57,8 +60,8 @@ class _RadioPageState extends State<RadioPage> {
                   )),
             ),
 
-            Expanded(
-              //padding: const EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: FutureBuilder<RadioResponse>
                 (
                 future: RadioFuture,
@@ -94,11 +97,11 @@ class _RadioPageState extends State<RadioPage> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  listeningIcons(CupertinoIcons.backward_end_fill, next_channel,provider),
+                  listeningIcons(CupertinoIcons.backward_end_fill, previous_channel),
 
-                  listeningIcons(CupertinoIcons.arrowtriangle_right_fill, next_channel,provider),
+                  listeningIcons(radioPlayer.playing?CupertinoIcons.pause_fill:CupertinoIcons.arrowtriangle_right_fill,radioPlayer.playing?pause: play),
 
-                  listeningIcons(CupertinoIcons.forward_end_fill,next_channel,provider),
+                  listeningIcons(CupertinoIcons.forward_end_fill,next_channel),
                 ],
               ),
             ),
@@ -110,8 +113,43 @@ class _RadioPageState extends State<RadioPage> {
   next_channel()
   {
     setState(() {
-      index+=1;
+      if(index<(radios.length-1))
+        index+=1;
+
       channelName = (radios != [])?radios[index].name??' ': channelName;
+
+      if(radioPlayer.playing)
+      play();
+    });
+  }
+
+  previous_channel()
+  {
+    setState(() {
+      if(index>0)
+        index-=1;
+
+      channelName = (radios != [])?radios[index].name??' ': channelName;
+
+      if(radioPlayer.playing)
+      play();
+    });
+  }
+  
+  play()
+  {
+    RadioUrl = (radios != [])?radios[index].radioUrl??' ': RadioUrl;
+    setState(() {
+      radioPlayer.setUrl(RadioUrl);
+      radioPlayer.play();
+    });
+
+  }
+
+  pause()
+  {
+    setState(() {
+      radioPlayer.pause();
     });
   }
 }
