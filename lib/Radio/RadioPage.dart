@@ -8,6 +8,7 @@ import 'package:quran/model/Radios.dart';
 import 'package:quran/tools/appconfig.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:just_audio/just_audio.dart';
+import 'dart:convert';
 
 class RadioPage extends StatefulWidget {
   static const routeName = 'RadioPage';
@@ -22,6 +23,7 @@ class _RadioPageState extends State<RadioPage> {
   late List<Radios> radios = [];
   late String channelName = 'Channel Name';
   late String RadioUrl = 'url';
+
   int index = 0;
 
   @override
@@ -68,8 +70,13 @@ class _RadioPageState extends State<RadioPage> {
                 builder: (BuildContext, snapshot) {
                   if (snapshot.hasData) {
                     radios = snapshot.data!.radios;
+                    String utf8convert(String text) {
+                      List<int> bytes = text.toString().codeUnits;
+                      return utf8.decode(bytes);
+                    }
                     print('from remote:' + snapshot.data!.radios.length.toString() + '\nfrom class: ' + radios.length.toString());
                     channelName = (radios!= null)?radios[index].name??' ':'Radio';
+                    channelName=utf8convert(channelName);
                     return Center(
                         child: Text(channelName,
                             style: TextStyle(color: provider.isDarkMode()
