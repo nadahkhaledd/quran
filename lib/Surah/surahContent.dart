@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
-import 'package:quran/ListOfSurahNames.dart';
+import 'package:quran/Surah/ListOfSurahNames.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:async';
 
-import 'package:quran/navbar.dart';
+import 'package:quran/singleNavbarPages/navbar.dart';
 
-import 'appconfig.dart';
+import '../tools/appconfig.dart';
 
 class surahContent extends StatefulWidget {
   String surahName = "surah name";

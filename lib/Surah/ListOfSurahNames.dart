@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/appconfig.dart';
-import 'package:quran/surahContent.dart';
+import 'package:quran/tools/appconfig.dart';
+import 'package:quran/Surah/surahContent.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/services.dart' show rootBundle;
 

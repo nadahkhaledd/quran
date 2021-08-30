@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/AhadeethMenu.dart';
-import 'package:quran/Setting.dart';
-import 'ListOfSurahNames.dart';
+import 'package:quran/Ahadeeth/AhadeethMenu.dart';
+import 'package:quran/singleNavbarPages/Setting.dart';
+import '../Surah/ListOfSurahNames.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'Sebha.dart';
-import 'package:quran/RadioPage.dart';
-import 'appconfig.dart';
+import 'package:quran/Radio/RadioPage.dart';
+import '../tools/appconfig.dart';
 
 class navbar extends StatefulWidget {
 

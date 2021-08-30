@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/AhadeethContent.dart';
+import 'package:quran/Ahadeeth/AhadeethContent.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:quran/appconfig.dart';
+import 'package:quran/tools/appconfig.dart';
 
 class AhadeethMenu extends StatefulWidget {
   static const routeName = 'SurahNames';
@@ -59,39 +59,32 @@ class _AhadeethMenuState extends State<AhadeethMenu> {
                       style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'ReemKufi'))),
             ),
 
-            Expanded(child:
-            Container(
-              child:
-              Expanded(
-                child: Container(
-                  alignment: AlignmentDirectional.centerEnd,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(10),
-                      itemCount: 10,
-                      itemBuilder: (BuildContext context, int index){
-                        return GestureDetector(
-                            child:
-                            Container(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Center(child:
-                              Text( provider.isEnglish()? 'Hadeeth No.${index+1}' : ' حديث رقم ${index+1} ',
-                               style: TextStyle(color: Theme.of(context).primaryColor,
-                                   fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ReemKufi'),)
-                              ),
+            Expanded(
+              child: Container(
+                alignment: AlignmentDirectional.centerEnd,
+                child: ListView.builder(
+                    padding: const EdgeInsets.all(10),
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index){
+                      return GestureDetector(
+                          child:
+                          Container(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Center(child:
+                            Text( provider.isEnglish()? 'Hadeeth No.${index+1}' : ' حديث رقم ${index+1} ',
+                             style: TextStyle(color: Theme.of(context).primaryColor,
+                                 fontSize: 18, fontWeight: FontWeight.bold,fontFamily: 'ReemKufi'),)
                             ),
-                            onTap: () {
-                              var route = new MaterialPageRoute(
-                                builder: (BuildContext context) => AhadeethContent( hadeethNumber: (index+1)),
-                              );
-                              Navigator.of(context).push(route);
-                            }
-                          /*Navigator.pushNamed(context, surahContent.routeName, arguments: {index+1,names[index]})*/
-                        );
-                      }
-                  ),
+                          ),
+                          onTap: () {
+                            var route = new MaterialPageRoute(
+                              builder: (BuildContext context) => AhadeethContent( hadeethNumber: (index+1)),
+                            );
+                            Navigator.of(context).push(route);
+                          });
+                    }
                 ),
               ),
-            )
             )
           ],
         ),

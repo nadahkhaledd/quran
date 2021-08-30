@@ -1,12 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/appconfig.dart';
+import 'package:quran/tools/appconfig.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:quran/myThemeData.dart';
-
 
 class Sebha extends StatefulWidget  {
   static const routeName = 'Sebha';
@@ -109,74 +106,69 @@ class _MyAppState extends State<Sebha> with TickerProviderStateMixin {
                             fontSize: 27,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'ElMessiri'))),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-             //     alignment: Alignment.topCenter,
-                  children: [
-                 Container(
-                    margin: EdgeInsets.only(top:30),
-                     //alignment: Alignment.topRight,
-                     child: Image(
-                       height: 80, width: 80,
-                       image:AssetImage('assets/icons/head of seb7a.png'))),
-                    Container(
-                     // margin: EdgeInsets.only(bottom:100),
-                   //   alignment: Alignment.topCenter,
-                      child: RotationTransition(
-                        turns: Tween(begin: 0.0,end:1.0).animate(_controller)
-                          ..addStatusListener((status) {
-                            if(status==AnimationStatus.completed)
-                            {
-                              _controller.reverse();
-                            }
-                          }),
-                        child: Image(
-                          image: AssetImage('assets/icons/body of seb7a.png'),
-                          width: 135,
-                          height: 135,
-                        ),
+                Container(
+                   margin: EdgeInsets.only(top:30),
+                    //alignment: Alignment.topRight,
+                    child: Image(
+                      height: 80, width: 80,
+                      image:AssetImage('assets/icons/head of seb7a.png'))),
+                   Container(
+                    // margin: EdgeInsets.only(bottom:100),
+                  //   alignment: Alignment.topCenter,
+                     child: RotationTransition(
+                       turns: Tween(begin: 0.0,end:1.0).animate(_controller)
+                         ..addStatusListener((status) {
+                           if(status==AnimationStatus.completed)
+                           {
+                             _controller.reverse();
+                           }
+                         }),
+                       child: Image(
+                         image: AssetImage('assets/icons/body of seb7a.png'),
+                         width: 135,
+                         height: 135,
+                       ),
+                     ),
+                   ),
 
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style:
+                  TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),)
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: new BorderRadius.circular(10.0),
+                        color:Theme.of(context).bottomAppBarColor,
 
                       ),
-                    ),
-                  ],
+                      width: 50,
+                      height: 50,
+                      child: Text(
+                        add.toString(),style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),
+
+                      )
+                  ),
                 ),
 
-                SizedBox(
-                  height: 50,
-                ),
-                Container(child: Text(AppLocalizations.of(context)!.tasbeehCount,style:
-                TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),)),
-                SizedBox(
-                  height: 25,
-                ),
-                Container(
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: new BorderRadius.circular(10.0),
-                      color:Theme.of(context).bottomAppBarColor,
-
-                    ),
-                    width: 50,
-                    height: 50,
-                    child: Text(
-                      add.toString(),style: TextStyle(fontSize: 30,color: Theme.of(context).primaryColor, fontFamily: 'ElMessiri'),
-
-                    )
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Container(
+                Padding(
+                  padding: EdgeInsets.all(8),
                   child: ElevatedButton(
-
-                    child: Text(value ,style: TextStyle(fontSize: 20,color: Theme.of(context).primaryColor,fontFamily: 'ElMessiri'),),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(value ,style: TextStyle(fontSize: 20,color: Theme.of(context).accentColor,fontFamily: 'ElMessiri'),),
+                    ),
                     onPressed: adder,
 
                     style: ElevatedButton.styleFrom(
                         primary:Theme.of(context).bottomAppBarColor,
                       shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
+                        borderRadius: new BorderRadius.circular(20.0),
                       ),
 
                     ),

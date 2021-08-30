@@ -4,8 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
-import 'package:quran/navbar.dart';
-import 'appconfig.dart';
+import 'package:quran/singleNavbarPages/navbar.dart';
+import '../tools/appconfig.dart';
 
 class AhadeethContent extends StatefulWidget {
   late int hadeethNumber;
